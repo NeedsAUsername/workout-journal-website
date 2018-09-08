@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :password, :presence => true
 
   def attributes_list
-    [:name, :email, :password]
+    self.attributes.keys.delete_if {|att| att == "id" || att == "updated_at"}.map do |att|
+      att == "password_digest" ? "password" : att
+    end 
+    # [:name, :email, :password]
   end
 end

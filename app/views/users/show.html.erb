@@ -1,1 +1,5 @@
-<h1>Welcome User</h1>
+<h1>Welcome <%= @user.name %></h1>
+
+<%= form_for @user, :url => logout_path, :method => :delete do |f| %>
+  <%= f.submit 'Log Out'%>
+<% end %>
