@@ -1,0 +1,5 @@
+<% if user.journal.nil? %>
+  <%= link_to 'Set Up Your Journal', new_journal_path %>
+<% else %>
+  <%= link_to 'Go To Your Journal', journals_path %>
+<% end %>
