@@ -16,3 +16,6 @@ exercises-categories- join table for exercises and categories
 extras?
 progress chart
 goals
+
+website flow
+homepage(users/show) shows user name, stats, other info. has link to journal. 

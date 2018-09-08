@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    if session[:user_id]
+    if logged_in?
       # log user in
     else
       render 'static/index'
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create

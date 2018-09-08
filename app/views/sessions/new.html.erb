@@ -1,1 +1,5 @@
 <h1>Log In</h1>
+<%= form_for @user, :url => login_path do |f| %>
+  <%= render partial: 'users/user_form', locals: {f: f, user: @user} %>
+  <%= f.submit 'Log In' %>
+<% end %>
