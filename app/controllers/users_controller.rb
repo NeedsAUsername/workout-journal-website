@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
 
   def show
-    if logged_in?
-      @user = User.find(session[:user_id])
-    else
-      render 'static/index'
-    end
+    @user = User.find(session[:user_id])
   end
 
   def new
@@ -23,9 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
+  end
+
+  def require_login
+    if !logged_in?
+      render 'static/index'
+    end
   end
 end
