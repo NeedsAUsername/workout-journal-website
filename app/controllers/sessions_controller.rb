@@ -5,17 +5,21 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       @user = User.new
-    end 
+    end
   end
 
   def create
-    if user_found? && user_authenticated?
-      set_session
-      redirect_to root_path
+    if user_found?
+      if user_authenticated?
+        set_session
+        redirect_to root_path
+      else
+        flash[:message] = "Wrong Password."
+        redirect_to login_path
+      end
     else
-      flash[:message] = "Failed to log in."
-      @user = User.new
-      render 'new'
+      flash[:message] = "Invalid Email."
+      redirect_to login_path
     end
   end
 

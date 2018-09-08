@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:message] = "Could not sign up"
+      flash[:message] = 'Email taken' if User.email_taken?(@user.email)
       render 'new'
     end
   end
@@ -38,4 +38,6 @@ class UsersController < ApplicationController
       render 'static/index'
     end
   end
+
+
 end

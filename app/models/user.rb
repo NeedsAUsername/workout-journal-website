@@ -9,7 +9,11 @@ class User < ApplicationRecord
   def attributes_list
     self.attributes.keys.delete_if {|att| att == "id" || att == "updated_at"}.map do |att|
       att == "password_digest" ? "password" : att
-    end 
+    end
     # [:name, :email, :password]
+  end
+
+  def self.email_taken?(email)
+    self.find_by(email: email)
   end
 end
