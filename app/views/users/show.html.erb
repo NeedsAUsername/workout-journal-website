@@ -1,5 +1,10 @@
 <h1>Welcome <%= @user.name %></h1>
 
+
+<%= render partial: 'journal_link', locals: {user: @user} %>
+
+<footer>
 <%= form_for @user, :url => logout_path, :method => :delete do |f| %>
   <%= f.submit 'Log Out'%>
 <% end %>
+</footer>
