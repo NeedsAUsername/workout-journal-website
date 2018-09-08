@@ -15,4 +15,4 @@ exercises-categories- join table for exercises and categories
 
 extras?
 progress chart
-goals 
+goals

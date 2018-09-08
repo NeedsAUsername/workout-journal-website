@@ -31,6 +31,12 @@ RSpec.describe User, :type => :model do
     expect(User.new(name: 'name', email: 'email')).not_to be_valid
   end
 
+  it 'has a unique email' do
+    user_original = user
+    user_copy = User.new(name: 'Copy', email: 'Example@example.com', password: 'pass')
+    expect(user_copy).not_to be_valid
+  end
+
   it 'has a journal' do
     user.journal = journal
     expect(user.journal).to eq(journal)

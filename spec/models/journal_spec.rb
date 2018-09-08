@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Journal, type: :model do
+RSpec.describe Journal, :type => :model do
   let(:journal) {
     Journal.create(name: "Journal", user: user)
   }
@@ -12,8 +12,13 @@ RSpec.describe Journal, type: :model do
     expect(journal).to be_valid
   end
 
-  it 'belongs to a user' do 
+  it 'belongs to a user' do
     expect(journal.user).to eq(user)
+  end
+
+  it 'has entries' do
+    journal.entries.build()
+    expect(journal.entries.size).to eq(1)
   end
 
 end
