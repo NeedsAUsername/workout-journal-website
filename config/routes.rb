@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'users#show'
 
   resources :user, only: [:new, :create, :edit, :update]
+  resources :journal, only: [:new, :create]
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'

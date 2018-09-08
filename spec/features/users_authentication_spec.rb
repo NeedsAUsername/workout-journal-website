@@ -61,4 +61,19 @@ RSpec.feature 'User Authentication', :type => :feature do
     expect(page).to have_text('Email taken')
   end
 
+  scenario 'User can log out' do
+    user = User.create(email: 'test@test.com', name: 'random', password: 'pass')
+
+    visit '/login'
+    fill_in 'Email', with: 'test@test.com'
+    fill_in 'Password', with: 'pass'
+    click_button 'Log In'
+
+    click_button 'Log Out'
+
+    expect(current_path).to eq('/')
+    expect(page).to have_text('You have logged out')
+  end
+
+
 end
