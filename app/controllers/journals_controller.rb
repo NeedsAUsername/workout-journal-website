@@ -1,6 +1,6 @@
 class JournalsController < ApplicationController
 
-  def show
+  def index
     if logged_in?
       if current_user.journal.nil?
         redirect_to root_path
@@ -18,8 +18,8 @@ class JournalsController < ApplicationController
 
   def create
     @journal = Journal.create(journal_params)
-    current_user.journa
-    curren_user.save
+    current_user.journal = @journal
+    current_user.save
   end
 
   private
