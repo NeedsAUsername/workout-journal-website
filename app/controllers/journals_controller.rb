@@ -20,6 +20,8 @@ class JournalsController < ApplicationController
     @journal = Journal.create(journal_params)
     current_user.journal = @journal
     current_user.save
+
+    redirect_to journals_path
   end
 
   private
