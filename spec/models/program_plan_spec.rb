@@ -17,6 +17,18 @@ RSpec.describe ProgramPlan, type: :model do
     )
   }
 
+  it 'is valid with a name and user and invalid without either' do
+    expect(program_plan).not_to be_valid
+
+    program_plan.user = user
+
+    expect(program_plan).to be_valid
+
+    program_plan.name = nil
+
+    expect(program_plan).not_to be_valid
+  end
+
   it 'belongs to a user' do
     program_plan.user = user
 
