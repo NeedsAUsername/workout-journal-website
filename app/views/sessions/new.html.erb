@@ -4,7 +4,7 @@
 
 <%= form_for @user, :url => login_path do |f| %>
   <%= render partial: 'users/user_form', locals: {
-    f: f, user: @user, attributes: @user.attributes_list.delete_if {|a| a == "name"}}
+    f: f, user: @user, attributes: @user.attributes_list.delete_if {|a| a == 'name'}}
   %>
   <%= f.submit 'Log In' %>
 <% end %>
