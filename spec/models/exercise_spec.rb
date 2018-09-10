@@ -4,16 +4,16 @@ RSpec.describe Exercise, type: :model do
   let(:exercise) {
     Exercise.create(
       name: 'Bench Press',
-      program_plan: program_plan
     )
   }
   let(:program_plan) {
     ProgramPlan.create(
-      name: 'A Program'
+      name: 'A Program',
+      user: User.create(name: 'name')
     )
   }
 
-  it 'is valid with a name and program' do
+  it 'is valid with a name' do
     expect(exercise).to be_valid
   end
 
@@ -21,7 +21,9 @@ RSpec.describe Exercise, type: :model do
     expect(Exercise.new()).not_to be_valid
   end
 
-  it 'belongs to a program' do
-    expect(exercise.program_plan).to eq(program_plan)
+  it 'has many programs' do
+    exercise.program_plans << program_plan
+
+    expect(exercise.program_plans).to include(program_plan)
   end
 end

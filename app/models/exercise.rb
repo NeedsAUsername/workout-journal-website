@@ -1,5 +1,7 @@
 class Exercise < ApplicationRecord
-  belongs_to :program_plan
+  has_many :exercise_program_plans
+  has_many :program_plans, through: :exercise_program_plans
 
-  validates :name, :presence => true 
+
+  validates :name, :presence => true
 end
