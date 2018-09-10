@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_one :journal
+  has_one :program_plan
 
   validates :name, :presence => true
   validates :email, :presence => true, :uniqueness => true
