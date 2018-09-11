@@ -11,9 +11,10 @@ class ProgramPlan < ApplicationRecord
   # so that other user's created programs do not show up on everybody's program index page.
 
   # use this method in seeds to quickly create the featured programs.
-  # In db/seeds: ProgramPlan.create_featured_programs
+  # spent a long time figuring out how to refactor all of this!
+  # In db/seeds: ProgramPlan.create_or_update_featured_programs
 
-  def self.create_featured_programs
+  def self.create_or_update_featured_programs
     self.featured_program_plan_attributes.each_with_index do |plan_attributes, index|
       if user = User.find_by(email: "admin#{index}@admin.com")
         user.program_plan.update(plan_attributes)
@@ -28,6 +29,7 @@ class ProgramPlan < ApplicationRecord
 
   private
 
+  # add any new featured program attributes to this array
   def self.featured_program_plan_attributes
     [self.starting_strength_attributes, self.strong_lifts_attributes]
   end
