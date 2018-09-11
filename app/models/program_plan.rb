@@ -15,7 +15,7 @@ class ProgramPlan < ApplicationRecord
 
   def self.create_featured_programs
     self.featured_program_plan_attributes.each_with_index do |plan_attributes, index|
-      if user = User.find_by(email: "admin@admin.com")
+      if user = User.find_by(email: "admin#{index}@admin.com")
         user.program_plan.update(plan_attributes)
         user.save
       else
