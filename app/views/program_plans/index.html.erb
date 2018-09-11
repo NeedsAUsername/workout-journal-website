@@ -1,7 +1,7 @@
 <h1>Featured Programs</h1>
 <% @program_plans.each do |plan| %>
   <% if plan.featured || plan.user == @user %>
-    <h3><%= plan.name %></h3>
+    <h3><%= link_to plan.name, program_plan_path(plan) %></h3>
     <h3><%= plan.description %></h3>
   <% end %>
 <% end %>
