@@ -10,11 +10,4 @@ user.build_journal(name: "Journal")
 user.journal.entries.build(date: "2018/07/07", comments: "Nice!")
 user.save
 
-if user = User.find_by(email: 'ss@ss.com')
-  user.program_plan.update(ProgramPlan.starting_strength_attributes)
-  user.save
-else
-  user = User.create(email: 'ss@ss.com', name: 'ss', password: 'pass')
-  user.build_program_plan(ProgramPlan.starting_strength_attributes)
-  user.save
-end
+ProgramPlan.create_featured_programs
