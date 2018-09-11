@@ -6,7 +6,7 @@ class ProgramPlansController < ApplicationController
       @user = current_user
     else
       @user = User.new
-    end 
+    end
   end
 
   def show
