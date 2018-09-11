@@ -1,2 +1,5 @@
 <h1><%= @program_plan.name %></h1>
 <h2><%= @program_plan.description %></h2>
+<% @program_plan.links.each do |link| %>
+  <%= link_to link.description, link.name, target: :blank %>
+<% end  %>
