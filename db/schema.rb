@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_09_10_214655) do
     t.string "name"
     t.string "description"
     t.integer "user_id"
+    t.boolean "featured"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

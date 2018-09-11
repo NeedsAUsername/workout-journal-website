@@ -40,4 +40,8 @@ RSpec.describe ProgramPlan, type: :model do
 
     expect(program_plan.exercises).to include(exercise)
   end
+
+  it 'by default is not featured' do 
+    expect(program_plan.featured).to eq(false)
+  end
 end

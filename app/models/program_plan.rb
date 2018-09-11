@@ -3,6 +3,8 @@ class ProgramPlan < ApplicationRecord
   has_many :exercise_program_plans
   has_many :exercises, through: :exercise_program_plans
 
+  after_initialize :set_defaults, unless: :persisted?
+
   validates :name, :presence => true
 
 
@@ -18,5 +20,11 @@ class ProgramPlan < ApplicationRecord
       name: 'Strong Lifts',
       description: 'A simple but effective 5x5 squat-focused training routine for building strength.'
     }
+  end
+
+  private
+
+  def set_defaults
+    self.featured = false if self.featured.nil?
   end
 end
