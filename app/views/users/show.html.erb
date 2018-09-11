@@ -2,6 +2,8 @@
 
 
 <%= render partial: 'journal_link', locals: {user: @user} %>
+<br>
+<%= link_to 'Check out the available programs', program_plans_path %>
 
 <footer>
 <%= form_for @user, :url => logout_path, :method => :delete do |f| %>
