@@ -1,1 +1,5 @@
 <h1>Available Programs</h1>
+<% @program_plans.each do |plan| %>
+  <h3><%= plan.name %></h3>
+  <h3><%= plan.description %></h3>
+<% end %>
