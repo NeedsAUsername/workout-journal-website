@@ -13,19 +13,20 @@ class ProgramPlan < ApplicationRecord
 
   # use this method in seeds to quickly create the featured programs.
   # In db/seeds: ProgramPlan.create_or_update_featured_programs
+  # Later, could refactor this into an admin class that has many programs, and can do this through the browser.
 
   def self.create_or_update_featured_programs
     self.featured_program_plan_attributes.each_with_index do |plan_attributes, index|
       if user = User.find_by(email: "admin#{index}@admin.com")
         user.program_plan.update(plan_attributes[:program_attributes])
-        user.program_plan.links.build(plan_attributes[:program_links])
-        user.save
+        destroy_objects(user.program_plan.links)
       else
         user = User.create(email: "admin#{index}@admin.com", name: 'admin', password: 'pass')
         user.build_program_plan(plan_attributes[:program_attributes])
-        user.program_plan.links.build(plan_attributes[:program_links])
-        user.save
       end
+        user.program_plan.links.build(plan_attributes[:program_links])
+        user.program_plan.save
+        user.save
     end
   end
 
@@ -67,6 +68,12 @@ class ProgramPlan < ApplicationRecord
       ]
     }
 
+  end
+
+  def self.destroy_objects(obj_array)
+    obj_array.each do |obj|
+      obj.destroy
+    end
   end
 
   def set_defaults
