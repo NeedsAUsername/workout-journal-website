@@ -5,7 +5,6 @@ class User < ApplicationRecord
 
   validates :name, :presence => true
   validates :email, :presence => true, :uniqueness => true
-  validates :password, :presence => true
 
   def attributes_list
     self.attributes.keys.delete_if {|att| att == "id" || att == "updated_at" || att == "created_at"}.map do |att|
