@@ -39,6 +39,6 @@ class ProgramPlansController < ApplicationController
   private
 
   def program_plan_params
-    params.require(:program_plan).permit(:name, :description)
+    params.require(:program_plan).permit(:name, :description, :exercise_ids => [])
   end
 end
