@@ -3,3 +3,15 @@
 <% @program_plan.links.each do |link| %>
   <%= link_to link.description, link.name, target: :blank %>
 <% end  %>
+
+  <h2>Excercises in this program: </h2>
+
+<% @program_plan.exercises.each do |exercise| %>
+
+  <h3><%= exercise.name %></h3>
+  <p><%= exercise.description %></p>
+  <% exercise.links.each do |link| %>
+    <%= link_to link.description, link.name, target: :blank %>
+  <% end %>
+
+<% end %>
