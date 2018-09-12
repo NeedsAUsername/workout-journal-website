@@ -27,6 +27,15 @@ class ProgramPlansController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.program_plan.featured
+      current_user.program_plan = nil
+    else
+      current_user.program_plan.destroy
+    end
+    redirect_to program_plans_path
+  end
+
   private
 
   def program_plan_params

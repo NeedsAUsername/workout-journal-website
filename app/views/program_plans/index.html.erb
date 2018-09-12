@@ -9,4 +9,8 @@
 
 <% if @user.program_plan.nil? %>
   <br><h2>If you want to start a custom program, <%= link_to 'click here', new_program_plan_path %></h2>
+  <% else %>
+  <%= form_for @user.program_plan, method: :delete do |f| %>
+    <%= f.submit 'stop your current program'%>
+  <% end %>
 <% end %>

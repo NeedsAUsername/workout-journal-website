@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :journals, :path => 'journal', only: [:new, :create, :index]
 
-  resources :program_plans, :path => 'programs', only: [:index, :show, :new, :create] do
+  resources :program_plans, :path => 'programs', only: [:index, :show, :new, :create, :destroy] do
     resources :exercises, only: [:index, :show]
   end
 

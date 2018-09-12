@@ -6,5 +6,8 @@
   <%= f.text_field :name %>
   <%= f.label :description %>
   <%= f.text_field :description %>
+  <br>
+  <%= f.label 'Excercises in this program: ' %>
+  <%= f.collection_check_boxes(:exercise_ids, Exercise.all, :id, :name, ) %>
   <%= f.submit 'Create Workout Program'%>
 <% end %>
