@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_193035) do
     t.integer "weight"
     t.integer "sets"
     t.integer "reps"
+    t.boolean "standard"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_09_11_193035) do
     t.text "name"
     t.text "description"
     t.integer "program_plan_id"
+    t.integer "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

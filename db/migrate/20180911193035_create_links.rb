@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration[5.2]
       t.text :name
       t.text :description
       t.integer :program_plan_id
+      t.integer :exercise_id
 
       t.timestamps
     end

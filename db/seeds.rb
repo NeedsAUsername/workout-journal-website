@@ -10,4 +10,7 @@ user.build_journal(name: "Journal")
 user.journal.entries.build(date: "2018/07/07", comments: "Nice!")
 user.save
 
+
+# necessary
+Exercise.create_standard_exercises # needs to go first
 ProgramPlan.create_or_update_featured_programs  # necessary for featured programs to show on program index page
