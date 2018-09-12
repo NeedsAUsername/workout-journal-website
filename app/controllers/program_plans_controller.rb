@@ -12,4 +12,8 @@ class ProgramPlansController < ApplicationController
   def show
     @program_plan = ProgramPlan.find(params[:id])
   end
+
+  def new
+    @program_plan = ProgramPlan.new
+  end
 end

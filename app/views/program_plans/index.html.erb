@@ -5,3 +5,8 @@
     <h3><%= plan.description %></h3>
   <% end %>
 <% end %>
+
+
+<% if @user.program_plan.nil? %>
+  <br><h2>If you want to start a custom program, <%= link_to 'click here', new_program_plan_path %></h2>
+<% end %>
