@@ -35,7 +35,7 @@ class Exercise < ApplicationRecord
       exercise_links:[
         {
           name: 'https://stronglifts.com/bench-press/',
-          description: 'Find out how to do the bench press',
+          description: 'Detailed guide on how to perform a proper bench press',
         }
       ]
     }
@@ -51,7 +51,7 @@ class Exercise < ApplicationRecord
       exercise_links: [
         {
         name: 'https://stronglifts.com/overhead-press/',
-        description: 'Find out how to do the overhead press'
+        description: 'Detailed guide on how to perform a proper overhead press'
         }
       ]
     }
