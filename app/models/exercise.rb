@@ -22,7 +22,7 @@ class Exercise < ApplicationRecord
   private
 
   def self.standard_exercise_attributes
-    [self.bench_press, self.overhead_press]
+    [self.bench_press, self.overhead_press, self.squat, self.deadlift, self.row]
   end
 
   def self.bench_press
@@ -52,6 +52,54 @@ class Exercise < ApplicationRecord
         {
         name: 'https://stronglifts.com/overhead-press/',
         description: 'Detailed guide on how to perform a proper overhead press'
+        }
+      ]
+    }
+  end
+
+  def self.squat
+    {
+      exercise_attributes: {
+      name: 'Squat',
+      description: 'Works the leg muscles.',
+      standard: true
+    },
+      exercise_links: [
+        {
+        name: 'https://stronglifts.com/squat/',
+        description: 'Detailed guide on how to perform a proper squat'
+        }
+      ]
+    }
+  end
+
+  def self.deadlift
+    {
+      exercise_attributes: {
+      name: 'Deadlift',
+      description: 'The king of lifts.',
+      standard: true
+    },
+      exercise_links: [
+        {
+        name: 'https://stronglifts.com/deadlift/',
+        description: 'Detailed guide on how to perform a proper deadlift'
+        }
+      ]
+    }
+  end
+
+  def self.row
+    {
+      exercise_attributes: {
+      name: 'Row',
+      description: 'Works the back muscles.',
+      standard: true
+    },
+      exercise_links: [
+        {
+        name: 'https://stronglifts.com/barbell-row/',
+        description: 'Detailed guide on how to perform a proper row'
         }
       ]
     }

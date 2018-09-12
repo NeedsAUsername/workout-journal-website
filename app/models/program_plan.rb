@@ -53,7 +53,7 @@ class ProgramPlan < ApplicationRecord
         }
       ],
       exercises: [
-        'Bench Press', 'Overhead Press'
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row'
       ]
     }
   end
@@ -72,7 +72,7 @@ class ProgramPlan < ApplicationRecord
         }
       ],
       exercises: [
-        'Bench Press', 'Overhead Press'
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
       ]
     }
   end
