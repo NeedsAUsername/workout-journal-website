@@ -85,12 +85,6 @@ class ProgramPlan < ApplicationRecord
     end
   end
 
-  def self.destroy_objects(obj_array)
-    obj_array.each do |obj|
-      obj.destroy
-    end
-  end
-
   def set_defaults
     self.featured = false if self.featured.nil?
   end
