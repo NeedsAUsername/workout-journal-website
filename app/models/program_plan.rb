@@ -26,9 +26,7 @@ class ProgramPlan < ApplicationRecord
         user.build_program_plan(plan_attributes[:program_attributes])
       end
         user.program_plan.links.build(plan_attributes[:program_links])
-        plan_attributes[:exercises].each do |exercise|
-          user.program_plan.exercises << Exercise.find_by(name: exercise)
-        end
+        add_exercises_using_name(user.program_plan, plan_attributes[:exercises])
         user.program_plan.save
         user.save
     end
@@ -77,7 +75,14 @@ class ProgramPlan < ApplicationRecord
         'Bench Press', 'Overhead Press'
       ]
     }
+  end
 
+  def self.add_exercises_using_name(program_plan, exercises_name_array)
+    exercises_name_array.each do |name|
+      if valid_exercise = Exercise.find_by(name: name)
+        program_plan.exercises << valid_exercise
+      end
+    end
   end
 
   def self.destroy_objects(obj_array)
