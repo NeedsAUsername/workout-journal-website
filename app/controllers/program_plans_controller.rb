@@ -16,4 +16,20 @@ class ProgramPlansController < ApplicationController
   def new
     @program_plan = ProgramPlan.new
   end
+
+  def create
+    @program_plan = ProgramPlan.new(program_plan_params)
+    @program_plan.user = current_user
+    if @program_plan.save
+      redirect_to program_plans_path
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def program_plan_params
+    params.require(:program_plan).permit(:name, :description)
+  end
 end

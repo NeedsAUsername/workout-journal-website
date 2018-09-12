@@ -1,1 +1,10 @@
 <h1>Start your own custom workout program!</h1>
+
+
+<%= form_for @program_plan do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit 'Create Workout Program'%>
+<% end %>
