@@ -30,7 +30,7 @@ class Exercise < ApplicationRecord
       exercise_attributes: {
         name: 'Bench Press',
         description: 'Works the chest, arms, and shoulder muscles.',
-        standard: true
+        standard: true # needed to be added to featured program_plans
       },
       exercise_links:[
         {
@@ -45,7 +45,8 @@ class Exercise < ApplicationRecord
     {
       exercise_attributes: {
       name: 'Overhead Press',
-      description: 'Works primarily the shoulders.'
+      description: 'Works primarily the shoulders.',
+      standard: true
     },
       exercise_links: [
         {

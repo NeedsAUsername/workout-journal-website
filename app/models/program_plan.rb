@@ -26,7 +26,7 @@ class ProgramPlan < ApplicationRecord
         user.build_program_plan(plan_attributes[:program_attributes])
       end
         user.program_plan.links.build(plan_attributes[:program_links])
-        add_exercises_using_name(user.program_plan, plan_attributes[:exercises])
+        add_standard_exercises_using_name(user.program_plan, plan_attributes[:exercises])
         user.program_plan.save
         user.save
     end
@@ -44,7 +44,7 @@ class ProgramPlan < ApplicationRecord
       program_attributes: {
       name: 'Starting Strength',
       description: 'A 3x5 squat-focused training system that focuses on building a foundation of strength with full-body workouts that utilize compound lifts.',
-      featured: true
+      featured: true # needed to be added to featured_programs
       },
       program_links: [
         {
@@ -77,9 +77,9 @@ class ProgramPlan < ApplicationRecord
     }
   end
 
-  def self.add_exercises_using_name(program_plan, exercises_name_array)
+  def self.add_standard_exercises_using_name(program_plan, exercises_name_array)
     exercises_name_array.each do |name|
-      if valid_exercise = Exercise.find_by(name: name)
+      if valid_exercise = Exercise.find_by(name: name, standard: true)
         program_plan.exercises << valid_exercise
       end
     end
