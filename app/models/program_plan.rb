@@ -20,11 +20,15 @@ class ProgramPlan < ApplicationRecord
       if user = User.find_by(email: "admin#{index}@admin.com")
         user.program_plan.update(plan_attributes[:program_attributes])
         destroy_objects(user.program_plan.links)
+        user.program_plan.exercises.clear
       else
         user = User.create(email: "admin#{index}@admin.com", name: 'admin', password: 'pass')
         user.build_program_plan(plan_attributes[:program_attributes])
       end
         user.program_plan.links.build(plan_attributes[:program_links])
+        plan_attributes[:exercises].each do |exercise|
+          user.program_plan.exercises << Exercise.find_by(name: exercise)
+        end
         user.program_plan.save
         user.save
     end
@@ -49,6 +53,9 @@ class ProgramPlan < ApplicationRecord
         name: 'https://startingstrength.com/get-started/programs',
         description: 'for more information on the program, visit their official site'
         }
+      ],
+      exercises: [
+        'Bench Press', 'Overhead Press'
       ]
     }
   end
@@ -65,6 +72,9 @@ class ProgramPlan < ApplicationRecord
         name: 'https://stronglifts.com/5x5/',
         description: 'for more information on the program, visit their officail site'
         }
+      ],
+      exercises: [
+        'Bench Press', 'Overhead Press'
       ]
     }
 
