@@ -3,7 +3,7 @@ class ProgramPlan < ApplicationRecord
   has_many :exercise_program_plans
   has_many :exercises, through: :exercise_program_plans
   has_many :links
-  
+
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, :presence => true
@@ -49,11 +49,11 @@ class ProgramPlan < ApplicationRecord
       program_links: [
         {
         name: 'https://startingstrength.com/get-started/programs',
-        description: 'for more information on the program, visit their official site'
+        description: 'visit their official site for more info'
         }
       ],
       exercises: [
-        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row'
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
       ]
     }
   end
@@ -68,11 +68,11 @@ class ProgramPlan < ApplicationRecord
       program_links: [
         {
         name: 'https://stronglifts.com/5x5/',
-        description: 'for more information on the program, visit their officail site'
+        description: 'Visit their official site for more info'
         }
       ],
       exercises: [
-        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row'
       ]
     }
   end
