@@ -33,6 +33,22 @@ class ProgramPlansController < ApplicationController
     end
   end
 
+  def edit
+    if logged_in?
+      @program_plan = current_user.program_plan
+    end
+  end
+
+  def update
+    @program_plan = current_user.program_plan
+    @program_plan.update(program_plan_params)
+    if @program_plan.save
+      redirect_to program_plan_path(@program_plan)
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     if current_user.program_plan.featured
       current_user.program_plan = nil
