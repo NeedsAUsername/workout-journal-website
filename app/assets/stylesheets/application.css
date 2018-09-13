@@ -13,4 +13,5 @@
  *= require_tree .
  *= require_self
  *= require errors.css
+ *= require main.css
  */

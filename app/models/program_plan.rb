@@ -3,7 +3,7 @@ class ProgramPlan < ApplicationRecord
   has_many :exercise_program_plans
   has_many :exercises, through: :exercise_program_plans
   has_many :links
-
+  
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, :presence => true

@@ -15,6 +15,7 @@ class ProgramPlansController < ApplicationController
 
   def new
     @program_plan = ProgramPlan.new
+    @standard_exercises = Exercise.all.select {|ex| ex.standard == true }
   end
 
   def create
@@ -31,8 +32,10 @@ class ProgramPlansController < ApplicationController
     if current_user.program_plan.featured
       current_user.program_plan = nil
     else
+      User.destroy_objects(current_user.program_plan.exercises)
       current_user.program_plan.destroy
     end
+    current_user.save
     redirect_to program_plans_path
   end
 
