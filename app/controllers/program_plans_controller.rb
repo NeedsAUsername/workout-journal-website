@@ -11,6 +11,11 @@ class ProgramPlansController < ApplicationController
 
   def show
     @program_plan = ProgramPlan.find(params[:id])
+    if logged_in?
+      @user = current_user
+    else
+      @user = User.new
+    end
   end
 
   def new

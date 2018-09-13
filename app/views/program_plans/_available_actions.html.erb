@@ -1,0 +1,13 @@
+
+<div class="sidebar">
+  <h2>Available Actions</h2>
+<% if user.program_plan.nil? %>
+  <p>placeholder: want to start this program?</p>
+<% elsif user.program_plan == program_plan %>
+  <%= form_for @program_plan, method: :delete do |f| %>
+  <%= f.submit 'stop your current program' %>
+  <% end %>
+<% else %>
+  <p>Cancel your current program if you want to start this one!</p>
+<% end %>
+</div>

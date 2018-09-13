@@ -1,6 +1,10 @@
 <h1><%= @program_plan.name %></h1>
 <h2><%= @program_plan.description %></h2>
 
+
+<%= render partial:'available_actions', locals: {program_plan: @program_plan, user: @user} %>
+
+
 <h3>Exercises in this program: </h3>
 
 <ul>
