@@ -32,7 +32,8 @@ class ProgramPlansController < ApplicationController
     if current_user.program_plan.featured
       current_user.program_plan = nil
     else
-      User.destroy_objects(current_user.program_plan.exercises)
+      custom_exercises = current_user.program_plan.exercises.select {|ex| ex.standard == false}
+      User.destroy_objects(custom_exercises)
       current_user.program_plan.destroy
     end
     current_user.save
