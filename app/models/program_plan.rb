@@ -22,9 +22,13 @@ class ProgramPlan < ApplicationRecord
   def self.create_or_update_featured_programs
     self.featured_program_plan_attributes.each_with_index do |plan_attributes, index|
       if user = User.find_by(email: "admin#{index}@admin.com")
-        user.program_plan.update(plan_attributes[:program_attributes])
-        destroy_objects(user.program_plan.links)
-        user.program_plan.exercises.clear
+        if user.program_plan.nil?
+          user.build_program_plan(plan_attributes[:program_attributes])
+        else
+          user.program_plan.update(plan_attributes[:program_attributes])
+          destroy_objects(user.program_plan.links)
+          user.program_plan.exercises.clear
+        end
       else
         user = User.create(email: "admin#{index}@admin.com", name: 'admin', password: 'pass')
         user.build_program_plan(plan_attributes[:program_attributes])

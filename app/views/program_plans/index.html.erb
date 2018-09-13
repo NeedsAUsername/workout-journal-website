@@ -9,9 +9,13 @@
 
 <br><br>
 <h1 class="content">Featured Programs</h1>
-<% @program_plans.each do |plan| %>
-  <% if plan.featured %>
-    <h3 class="content"><%= link_to plan.name, program_plan_path(plan) %></h3>
-    <h4 class="content"><%= plan.description %></h4>
+<% if @program_plans.detect {|plan| plan.featured}.nil? %>
+  <h1>Run rake db:seed to create featured programs and standard exercises! </h1>
+<% else %>
+  <% @program_plans.each do |plan| %>
+    <% if plan.featured %>
+      <h3 class="content"><%= link_to plan.name, program_plan_path(plan) %></h3>
+      <h4 class="content"><%= plan.description %></h4>
+    <% end %>
   <% end %>
 <% end %>

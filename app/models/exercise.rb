@@ -5,9 +5,9 @@ class Exercise < ApplicationRecord
 
   validates :name, :presence => true
 
-  def self.create_standard_exercises
+  def self.create_or_update_standard_exercises
     self.standard_exercise_attributes.each do |lift_attributes|
-      if exercise = Exercise.find_by(name: lift_attributes[:exercise_attributes][:name])
+      if exercise = Exercise.find_by(name: lift_attributes[:exercise_attributes][:name], standard: true)
         exercise.update(lift_attributes[:exercise_attributes])
         destroy_objects(exercise.links)
       else
