@@ -28,7 +28,7 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
   end
 
   scenario 'has show pages that link to exercises show pages' do
-    Exercise.create_standard_exercises
+    Exercise.create_or_update_standard_exercises
     ProgramPlan.create_or_update_featured_programs
     user_login(create_standard_user)
 

@@ -23,6 +23,6 @@ RSpec.feature 'User Homepage', :type => :feature do
     click_link 'Home'
 
     expect(page).not_to have_link('Set Up Your Journal')
-    expect(page).to have_link('Go To Your Journal')
+    expect(page).to have_link('Your Journal')
   end
 end
