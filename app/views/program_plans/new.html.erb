@@ -9,5 +9,5 @@
   <br><br>
   <%= f.label 'Excercises in this program: ' %>
   <%= f.collection_check_boxes(:exercise_ids, @standard_exercises, :id, :name) %>
-  <%= f.submit %>
+  <%= f.submit 'Create Program' %>
 <% end %>

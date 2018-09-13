@@ -8,5 +8,5 @@
   <br><br>
   <%= f.label 'Excercises in this program: ' %>
   <%= f.collection_check_boxes(:exercise_ids, @program_plan.valid_exercises, :id, :name) %>
-  <%= f.submit %>
+  <%= f.submit 'Save Changes'%>
 <% end %>

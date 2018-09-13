@@ -17,5 +17,17 @@ module LoginHelper
 
   def create_standard_user
     User.create(email: 'test@test.com', name: 'random', password: 'pass')
-  end 
+  end
+
+  def create_a_program
+    visit '/programs'
+    click_link 'Want to start a custom program?'
+
+    fill_in 'Name', with: 'test program'
+    fill_in 'Description', with: 'this is a test description'
+    check 'Bench Press'
+    check 'Deadlift'
+    
+    click_button 'Create Program'
+  end
 end
