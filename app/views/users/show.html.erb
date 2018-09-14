@@ -1,4 +1,4 @@
-<h1>Welcome <%= @user.name %></h1>
+<h1>Welcome <%= @user.name %> <img src="<%= @user.image %>" alt="" %></h1>
 
 
 <%= render partial: 'journal_link', locals: {user: @user} %>
