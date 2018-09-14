@@ -10,12 +10,14 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
+    <br>
     <h2>Exercises</h2>
     <%= f.collection_check_boxes(:exercise_ids, standard_exercises_list, :id, :name) %>
   </div>
+  <br>
   <h2><%= nested_field_text %></h2>
   <div id='exercises'>
-    <%= f.fields_for :exercises, program_plan.exercises.build do |exercise| %>
+    <%= f.fields_for :exercises, nested_exercises_list do |exercise| %>
       <%= render partial: 'exercise_fields', locals: {f: exercise} %>
     <% end %>
     <div class='links'>

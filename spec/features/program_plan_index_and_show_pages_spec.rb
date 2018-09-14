@@ -72,9 +72,6 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
     expect(current_path).to include('/edit')
     expect(page).to have_checked_field('Bench Press')
     expect(page).to have_checked_field('Deadlift')
-    expect(page).to have_unchecked_field('Row')
-    expect(page).to have_unchecked_field('Squat')
-    expect(page).to have_unchecked_field('Overhead Press')
 
     fill_in 'Name', with: 'Changed Name'
     fill_in 'Description', with: 'Changed Description'
