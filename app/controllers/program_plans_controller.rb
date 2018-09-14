@@ -39,6 +39,7 @@ class ProgramPlansController < ApplicationController
       @program_plan = current_user.program_plan
       @standard_exercises = Exercise.all.select {|ex| ex.standard }
       @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
+      @standard_or_custom_exercises = @standard_exercises + @custom_exercises 
     end
   end
 
