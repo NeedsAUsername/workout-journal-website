@@ -26,6 +26,7 @@ class ProgramPlansController < ApplicationController
   def create
     @program_plan = ProgramPlan.new(program_plan_params)
     @program_plan.user = current_user
+    @program_plan.save
     if @program_plan.save
       redirect_to program_plans_path
     else
@@ -64,6 +65,6 @@ class ProgramPlansController < ApplicationController
   private
 
   def program_plan_params
-    params.require(:program_plan).permit(:name, :description, :exercise_ids => [])
+    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
   end
 end

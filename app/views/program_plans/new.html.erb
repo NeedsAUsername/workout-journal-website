@@ -1,13 +1,2 @@
 <h1>Start your own custom workout program!</h1>
-
-
-<%= form_for @program_plan do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br><br>
-  <%= f.label 'Excercises in this program: ' %>
-  <%= f.collection_check_boxes(:exercise_ids, @standard_exercises, :id, :name) %>
-  <%= f.submit 'Create Program' %>
-<% end %>
+<%= render partial: 'form', locals: {program_plan: @program_plan} %>

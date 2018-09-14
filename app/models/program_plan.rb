@@ -3,10 +3,17 @@ class ProgramPlan < ApplicationRecord
   has_many :exercise_program_plans
   has_many :exercises, through: :exercise_program_plans
   has_many :links
+  accepts_nested_attributes_for :exercises, reject_if: :all_blank, allow_destroy: :true
 
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, :presence => true
+
+  # def exercises_attributes=(exercises_attributes)
+  #   exercises_attributes.each do |index, exercises_attribute|
+  #     self.exercises.build(exercises_attribute)
+  #   end
+  # end
 
   def valid_exercises
     Exercise.all.select {|ex| ex.standard || self.exercises.include?(ex)}

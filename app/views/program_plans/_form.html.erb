@@ -1,0 +1,25 @@
+<%= form_for program_plan do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label 'Standard Exercises:' %>
+    <%= f.collection_check_boxes(:exercise_ids, @standard_exercises, :id, :name) %>
+  </div>
+  <div id='exercises'>
+    <%= f.fields_for :exercises do |exercise| %>
+      <%= render partial: 'exercise_fields', locals: {f: exercise} %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add exercise', f, :exercises %>
+    </div>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
