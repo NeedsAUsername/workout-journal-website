@@ -9,17 +9,28 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user_found?
-      if user_authenticated?
-        set_session
-        redirect_to root_path
+    if auth.present?
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.name = auth['info']['name']
+        u.email = auth['info']['email']
+        u.image = auth['info']['image']
+        u.password = SecureRandom.hex
+      end
+      set_session
+      redirect_to root_path
+    else # normal login
+      if user_found?
+        if user_authenticated?
+          set_session
+          redirect_to root_path
+        else
+          flash[:message] = "Wrong Password."
+          redirect_to login_path
+        end
       else
-        flash[:message] = "Wrong Password."
+        flash[:message] = "Invalid Email."
         redirect_to login_path
       end
-    else
-      flash[:message] = "Invalid Email."
-      redirect_to login_path
     end
   end
 
@@ -42,4 +53,9 @@ class SessionsController < ApplicationController
   def set_session
     session[:user_id] = @user.id
   end
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
 end

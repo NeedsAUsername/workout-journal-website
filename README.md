@@ -25,6 +25,8 @@ To set up featured programs(which will show up on the programs page for all user
 
 If you want to edit the standard exercises or featured programs, simply change the attributes and run the create_or_update method again. Alternatively, use rake:seed to do both at the same time.
 
+To start the server, use thin start -ssl, instead of rails s, because facebook login requires https
+
 # Testing
 run rspec
 
