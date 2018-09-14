@@ -9,16 +9,6 @@ class ProgramPlan < ApplicationRecord
 
   validates :name, :presence => true
 
-  # def exercises_attributes=(exercises_attributes)
-  #   exercises_attributes.each do |index, exercises_attribute|
-  #     self.exercises.build(exercises_attribute)
-  #   end
-  # end
-
-  def valid_exercises
-    Exercise.all.select {|ex| ex.standard || self.exercises.include?(ex)}
-  end
-
   # featured programs will be shown on the program index page for the user to browse and choose. The featured boolean is there
   # so that other user's created programs do not show up on everybody's program index page.
 

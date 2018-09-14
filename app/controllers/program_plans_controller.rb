@@ -20,7 +20,7 @@ class ProgramPlansController < ApplicationController
 
   def new
     @program_plan = ProgramPlan.new
-    @standard_exercises = Exercise.all.select {|ex| ex.standard == true }
+    @standard_exercises = Exercise.all.select {|ex| ex.standard }
   end
 
   def create
@@ -37,6 +37,8 @@ class ProgramPlansController < ApplicationController
   def edit
     if logged_in?
       @program_plan = current_user.program_plan
+      @standard_exercises = Exercise.all.select {|ex| ex.standard }
+      @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
     end
   end
 
