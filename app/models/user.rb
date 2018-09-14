@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, :presence => true, :uniqueness => true
 
   def attributes_list
-    self.attributes.keys.delete_if {|att| att == "id" || att == "updated_at" || att == "created_at"}.map do |att|
+    self.attributes.keys.delete_if {|att| hidden_attributes.include? att }.map do |att|
       att == "password_digest" ? "password" : att
     end
     # [:name, :email, :password]
@@ -15,5 +15,11 @@ class User < ApplicationRecord
 
   def self.email_taken?(email)
     self.find_by(email: email)
+  end
+
+  private
+
+  def hidden_attributes
+    ['id', 'updated_at', 'created_at', 'uid', 'image']
   end
 end
