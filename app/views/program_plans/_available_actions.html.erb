@@ -6,7 +6,6 @@
     <%= f.hidden_field :id, value: program_plan.id %>
     <%= f.submit 'Start This Program'%>
   <% end  %>
-  <p>placeholder: want to start this program?</p>
 <% elsif user.program_plan == program_plan %>
   <%= link_to 'Edit Your Program', edit_program_plan_path(program_plan) %>
   <%= form_for program_plan, method: :delete do |f| %>
