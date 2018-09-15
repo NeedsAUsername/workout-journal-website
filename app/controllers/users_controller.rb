@@ -7,11 +7,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    if logged_in?
-      redirect_to root_path
-    else
-      @user = User.new
-    end
+    root_if_logged_in
+    @user = User.new
   end
 
   def create
@@ -25,12 +22,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   private
 
   def user_params
@@ -40,6 +31,12 @@ class UsersController < ApplicationController
   def require_login
     if !logged_in?
       render 'static/index'
+    end
+  end
+
+  def root_if_logged_in
+    if logged_in?
+      redirect_to root_path
     end
   end
 
