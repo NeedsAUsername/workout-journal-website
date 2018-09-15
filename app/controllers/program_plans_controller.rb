@@ -31,6 +31,9 @@ class ProgramPlansController < ApplicationController
       @featured_program.exercises.each do |exercise|
         @program_plan.exercises << exercise
       end
+      @featured_program.links.each do |link|
+        @program_plan.links << link
+      end
     else
       @program_plan = ProgramPlan.new(program_plan_params)
     end
