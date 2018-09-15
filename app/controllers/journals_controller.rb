@@ -1,14 +1,10 @@
 class JournalsController < ApplicationController
 
   def index
-    if logged_in?
-      if current_user.journal.nil?
-        redirect_to root_path
-      else
-        @journal = current_user.journal
-      end
+    if current_user.journal.nil?
+      redirect_to root_path
     else
-      redirect_to login_path
+      @journal = current_user.journal
     end
   end
 

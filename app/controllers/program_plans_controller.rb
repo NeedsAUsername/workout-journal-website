@@ -7,11 +7,7 @@ class ProgramPlansController < ApplicationController
 
   def show
     @program_plan = ProgramPlan.find(params[:id])
-    if logged_in?
-      @user = current_user
-    else
-      @user = User.new
-    end
+    @user = current_user
   end
 
   def new
@@ -33,7 +29,9 @@ class ProgramPlansController < ApplicationController
     else
       @program_plan = ProgramPlan.new(program_plan_params)
     end
+
     @program_plan.user = current_user
+
     if @program_plan.save
       redirect_to program_plans_path
     else
@@ -42,12 +40,10 @@ class ProgramPlansController < ApplicationController
   end
 
   def edit
-    if logged_in?
-      @program_plan = current_user.program_plan
-      @standard_exercises = Exercise.all.select {|ex| ex.standard }
-      @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
-      @standard_or_custom_exercises = @standard_exercises + @custom_exercises
-    end
+    @program_plan = current_user.program_plan
+    @standard_exercises = Exercise.all.select {|ex| ex.standard }
+    @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
+    @standard_or_custom_exercises = @standard_exercises + @custom_exercises
   end
 
   def update
