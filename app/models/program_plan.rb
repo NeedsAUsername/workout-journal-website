@@ -13,8 +13,7 @@ class ProgramPlan < ApplicationRecord
   # so that other user's created programs do not show up on everybody's program index page.
 
   # use this method in seeds to quickly create the featured programs.
-  # In db/seeds: ProgramPlan.create_or_update_featured_programs
-  # Later, could refactor this into an admin class that has many programs, and can do this through the browser.
+  # In db/seeds: ProgramPlan.create_or_update_featured_programs after Exercise.create_or_update_standard_exercises
 
   def self.create_or_update_featured_programs
     self.featured_program_plan_attributes.each_with_index do |plan_attributes, index|
