@@ -24,9 +24,17 @@ class ProgramPlansController < ApplicationController
   end
 
   def create
-    @program_plan = ProgramPlan.new(program_plan_params)
+    if params[:program_plan][:id]
+      @featured_program =ProgramPlan.find_by(featured_params)
+      @program_plan = @featured_program.dup
+      @program_plan.featured = nil
+      @featured_program.exercises.each do |exercise|
+        @program_plan.exercises << exercise
+      end
+    else
+      @program_plan = ProgramPlan.new(program_plan_params)
+    end
     @program_plan.user = current_user
-    @program_plan.save
     if @program_plan.save
       redirect_to program_plans_path
     else
@@ -39,7 +47,7 @@ class ProgramPlansController < ApplicationController
       @program_plan = current_user.program_plan
       @standard_exercises = Exercise.all.select {|ex| ex.standard }
       @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
-      @standard_or_custom_exercises = @standard_exercises + @custom_exercises 
+      @standard_or_custom_exercises = @standard_exercises + @custom_exercises
     end
   end
 
@@ -69,5 +77,9 @@ class ProgramPlansController < ApplicationController
 
   def program_plan_params
     params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
+  end
+
+  def featured_params
+    params.require(:program_plan).permit(:id)
   end
 end
