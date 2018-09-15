@@ -6,14 +6,14 @@ class Exercise < ApplicationRecord
   validates :name, :presence => true
 
   def self.create_or_update_standard_exercises
-    self.standard_exercise_attributes.each do |lift_attributes|
-      if exercise = Exercise.find_by(name: lift_attributes[:exercise_attributes][:name], standard: true)
-        exercise.update(lift_attributes[:exercise_attributes])
+    self.standard_exercise_attributes.each do |lift|
+      if exercise = Exercise.find_by(name: lift[:exercise_attributes][:name], standard: true)
+        exercise.update(lift[:exercise_attributes])
         destroy_objects(exercise.links)
       else
-        exercise = Exercise.create(lift_attributes[:exercise_attributes])
+        exercise = Exercise.create(lift[:exercise_attributes])
       end
-      exercise.links.build(lift_attributes[:exercise_links])
+      exercise.links.build(lift[:exercise_links])
       exercise.save
     end
   end
@@ -22,7 +22,7 @@ class Exercise < ApplicationRecord
   private
 
   def self.standard_exercise_attributes
-    [self.bench_press, self.overhead_press, self.squat, self.deadlift, self.row]
+    [bench_press, overhead_press, squat, deadlift, row, chin_up]
   end
 
   def self.bench_press
@@ -61,7 +61,7 @@ class Exercise < ApplicationRecord
     {
       exercise_attributes: {
       name: 'Squat',
-      description: 'Works the leg muscles.',
+      description: "Works the leg muscles. Don't skip leg day.",
       standard: true
     },
       exercise_links: [
@@ -100,6 +100,22 @@ class Exercise < ApplicationRecord
         {
         name: 'https://stronglifts.com/barbell-row/',
         description: 'Detailed guide on how to perform a proper row'
+        }
+      ]
+    }
+  end
+
+  def self.chin_up
+    {
+      exercise_attributes: {
+        name: 'Chin-up',
+        description: 'Amazing upper body exercise.',
+        standard: true
+      },
+      exercise_links:[
+        {
+          name: 'https://www.youtube.com/watch?v=mRznU6pzez0',
+          description: 'Youtube video on how to perform a proper chin-up',
         }
       ]
     }

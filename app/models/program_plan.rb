@@ -40,10 +40,10 @@ class ProgramPlan < ApplicationRecord
 
   # add any new featured program attributes to this array
   def self.featured_program_plan_attributes
-    [self.starting_strength_attributes, self.strong_lifts_attributes]
+    [starting_strength, strong_lifts, boring_but_big, greyskull]
   end
 
-  def self.starting_strength_attributes
+  def self.starting_strength
     {
       program_attributes: {
       name: 'Starting Strength',
@@ -62,7 +62,7 @@ class ProgramPlan < ApplicationRecord
     }
   end
 
-  def self.strong_lifts_attributes
+  def self.strong_lifts
     {
       program_attributes:  {
           name: 'Strong Lifts',
@@ -80,6 +80,48 @@ class ProgramPlan < ApplicationRecord
       ]
     }
   end
+
+  def self.greyskull
+    {
+      program_attributes:  {
+          name: "Greyskull LP - Phrak's Variant",
+          description: 'A popular linearly progressing AMRAP(as many reps as possible) routine that places less of a focus on squats than Starting Strength or StrongLifts.',
+          featured: true
+      },
+      program_links: [
+        {
+        name: 'https://old.reddit.com/r/Fitness/wiki/phraks-gslp',
+        description: 'Reddit Guide'
+        }
+      ],
+      exercises: [
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row', 'Chin-up'
+      ]
+    }
+  end
+
+  def self.boring_but_big
+    {
+      program_attributes:  {
+          name: 'Boring But Big',
+          description: "Jim Wendler's popular no-frills routine for strength and size.",
+          featured: true
+      },
+      program_links: [
+        {
+        name: 'https://jimwendler.com/blogs/jimwendler-com/101077382-boring-but-big',
+        description: 'Visit their official site for more info'
+        }
+      ],
+      exercises: [
+        'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
+      ]
+    }
+  end
+
+
+
+
 
   def self.add_standard_exercises_using_name(program_plan, exercises_name_array)
     exercises_name_array.each do |name|
