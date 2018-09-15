@@ -32,7 +32,7 @@ class ProgramPlansController < ApplicationController
         @program_plan.exercises << exercise
       end
       @featured_program.links.each do |link|
-        @program_plan.links << link
+        @program_plan.links << link.dup
       end
     else
       @program_plan = ProgramPlan.new(program_plan_params)
