@@ -16,3 +16,20 @@ create duplicates of standard exercises and duplicates of featured programs then
 Another idea could be to scrap the idea of the exercise having weights in the first place. Instead, I could have the journal track the weights instead, perhaps using the last entry's data. That way, I don't have to worry about duplication, and can keep the standard exercises attached to the user since users won't be making attribute changes to them. What to do??
 
 I also really don't want to make changes to my long generation methods/the way standard exericses and featured programs are currently structured! Ideally, changes must be on the user side!
+
+
+journal index page
+
+ list of unique workout days for the user's program. will default to the next one in the order. Users can change the order of the workouts.
+
+workout a  workout b  workout c
+
+today is workout a, next is workout b
+ when a user clicks on the workout it becomes today's workout, changing the next workout as the next one.
+  -> today is workout b, next is workout c
+
+ data that will change according to today's workout
+exercise 1 weight: default to the last entry
+exericse 2 weight: default to the last entry
+date : today
+Complete this workout -> submits data into journal history
