@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :show]
 
   def show
-    @user = User.find(session[:user_id])
+    if !logged_in?
+      render 'static/index'
+    else
+      @user = User.find(session[:user_id])
+    end
   end
 
   def new
@@ -27,18 +30,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
-
-  def require_login
-    if !logged_in?
-      render 'static/index'
-    end
-  end
-
-  def root_if_logged_in
-    if logged_in?
-      redirect_to root_path
-    end
-  end
-
 
 end
