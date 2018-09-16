@@ -33,3 +33,11 @@ exercise 1 weight: default to the last entry
 exericse 2 weight: default to the last entry
 date : today
 Complete this workout -> submits data into journal history
+
+
+
+HEROKU NOTES
+to migrate:
+$ heroku run rake db:migrate
+to seed:
+$ heroku run rake db:seed
