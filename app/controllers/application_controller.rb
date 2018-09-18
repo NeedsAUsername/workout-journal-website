@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   def logged_in?
-    session[:user_id].present?
+    !!current_user
   end
 
   def current_user
-    User.find(session[:user_id])
+    @current_user ||= User.find(session[:user_id])
   end
 
   def require_login
