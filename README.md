@@ -1,13 +1,14 @@
 # README
 
 # Project title
-Workout Journal Website
+Workout Journal/Program Info Website at https://workout-programs-journal.herokuapp.com/
 
 # Motivation
 For the past few years, I have tracked my workouts in notebooks and on excel spreadsheets. Since I'm learning to code, why not build a site that I could use myself? There are many websites and apps out there for workout logging, and many sites that have information on different workout programs and routines, but mine aims to do both: to be a place to find information on programs, and to conveniently set your journal to follow a program that you like!
 
 # Build Status
-Under development
+Program pages mostly done.
+Journal under development.
 
 # Features
 A programs page that features some workout programs that I have used over the years, and which I believe have stood the test of time as effective routines for building strength.
