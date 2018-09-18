@@ -14,6 +14,8 @@ Journal under development.
 A programs page that features some workout programs that I have used over the years, and which I believe have stood the test of time as effective routines for building strength.
 
 # Setting Up
+run bundle
+
 To set up standard exercises(which will show by default when users create a custom program)
   - go to app/models/exercises
   - define a method with the exercise's attributes, and insert it into the method self.standard_exercise_attributes
@@ -33,6 +35,8 @@ run rspec
 
 If you decide/change the standard exercises or featured programs that I have currently, you will need to change the test specs since they are dependent on them.
 
+# Contributing
+Fork, make changes, describe the changes, and open a pull request against this repo
 
 # License
 MIT
