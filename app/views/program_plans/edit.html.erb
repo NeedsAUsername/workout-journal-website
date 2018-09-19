@@ -3,10 +3,7 @@
 <%= render partial: 'form',
   locals: {
     program_plan: @program_plan,
-    show_exercises: false,
-    exercises_text: nil,
-    exercise_method: :exercise_ids,
-    standard_exercises_list: [],
+    show_standard_exercises: false,
     nested_field_text: "Edit this program's exercises",
     nested_exercises_list: @program_plan.exercises,
     save_text: 'Save Changes'

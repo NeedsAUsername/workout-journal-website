@@ -9,11 +9,11 @@
     <br/>
     <%= f.text_field :description %>
   </div>
-  <% if show_exercises %>
+  <% if show_standard_exercises %>
     <div class="field">
       <br>
-      <h2><%= exercises_text %></h2>
-      <%= f.collection_check_boxes(exercise_method, standard_exercises_list, :id, :name) %>
+      <h2>Standard Exercises</h2>
+      <%= f.collection_check_boxes(:dup_exercise_ids, @standard_exercises, :id, :name) %>
     </div>
   <% end %>
   <br>
