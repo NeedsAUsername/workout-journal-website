@@ -3,6 +3,7 @@ class ProgramPlan < ApplicationRecord
   has_many :exercise_program_plans
   has_many :exercises, through: :exercise_program_plans
   has_many :links
+  has_many :days
   accepts_nested_attributes_for :exercises, reject_if: :all_blank, allow_destroy: :true
 
   after_initialize :set_defaults, unless: :persisted?
@@ -39,15 +40,23 @@ class ProgramPlan < ApplicationRecord
           user.program_plan.update(plan_attributes[:program_attributes])
           destroy_objects(user.program_plan.links)
           user.program_plan.exercises.clear
+          user.program_plan.days.clear
         end
       else
         user = User.create(email: "admin#{index}@admin.com", name: 'admin', password: 'pass')
         user.build_program_plan(plan_attributes[:program_attributes])
       end
-        user.program_plan.links.build(plan_attributes[:program_links])
-        add_standard_exercises_using_name(user.program_plan, plan_attributes[:exercises])
-        user.program_plan.save
-        user.save
+      
+      user.program_plan.links.build(plan_attributes[:program_links])
+      add_standard_exercises_using_name(user.program_plan, plan_attributes[:exercises])
+
+      plan_attributes[:days].each do |day|
+        created_day = user.program_plan.days.build(name: day[:name])
+        add_standard_exercises_using_name(created_day, day[:exercises])
+      end
+
+      user.program_plan.save
+      user.save
     end
   end
 
@@ -73,6 +82,16 @@ class ProgramPlan < ApplicationRecord
       ],
       exercises: [
         'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
+      ],
+      days: [
+        {
+          name: 1,
+          exercises: ['Squat', 'Bench Press', 'Deadlift']
+        },
+        {
+          name: 2,
+          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+        }
       ]
     }
   end
@@ -92,6 +111,16 @@ class ProgramPlan < ApplicationRecord
       ],
       exercises: [
         'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row'
+      ],
+      days: [
+        {
+          name: 1,
+          exercises: ['Squat', 'Bench Press', 'Deadlift']
+        },
+        {
+          name: 2,
+          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+        }
       ]
     }
   end
@@ -111,6 +140,16 @@ class ProgramPlan < ApplicationRecord
       ],
       exercises: [
         'Squat', 'Bench Press', 'Overhead Press', 'Deadlift', 'Row', 'Chin-up'
+      ],
+      days: [
+        {
+          name: 1,
+          exercises: ['Squat', 'Bench Press', 'Deadlift']
+        },
+        {
+          name: 2,
+          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+        }
       ]
     }
   end
@@ -130,6 +169,16 @@ class ProgramPlan < ApplicationRecord
       ],
       exercises: [
         'Squat', 'Bench Press', 'Overhead Press', 'Deadlift'
+      ],
+      days: [
+        {
+          name: 1,
+          exercises: ['Squat', 'Bench Press', 'Deadlift']
+        },
+        {
+          name: 2,
+          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+        }
       ]
     }
   end
@@ -138,10 +187,10 @@ class ProgramPlan < ApplicationRecord
 
 
 
-  def self.add_standard_exercises_using_name(program_plan, exercises_name_array)
+  def self.add_standard_exercises_using_name(parent, exercises_name_array)
     exercises_name_array.each do |name|
       if valid_exercise = Exercise.find_by(name: name, standard: true)
-        program_plan.exercises << valid_exercise
+        parent.exercises << valid_exercise
       end
     end
   end

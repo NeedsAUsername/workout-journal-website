@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_11_193035) do
+ActiveRecord::Schema.define(version: 2018_09_19_033312) do
+
+  create_table "days", force: :cascade do |t|
+    t.string "name"
+    t.integer "program_plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.datetime "date"
     t.text "comments"
     t.integer "journal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exercise_days", force: :cascade do |t|
+    t.integer "exercise_id"
+    t.integer "day_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
