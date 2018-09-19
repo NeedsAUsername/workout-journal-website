@@ -21,7 +21,9 @@ class ProgramPlansController < ApplicationController
       @program_plan = @featured_program.dup
       @program_plan.featured = nil
       @featured_program.exercises.each do |exercise|
-        @program_plan.exercises << exercise
+        dup_exercise = exercise.dup
+        dup_exercise.standard = nil
+        @program_plan.exercises << dup_exercise
       end
       @featured_program.links.each do |link|
         @program_plan.links << link.dup
@@ -71,7 +73,7 @@ class ProgramPlansController < ApplicationController
   private
 
   def program_plan_params
-    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
+    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :dup_exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
   end
 
   def featured_params

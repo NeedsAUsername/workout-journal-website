@@ -12,7 +12,7 @@
   <div class="field">
     <br>
     <h2>Exercises</h2>
-    <%= f.collection_check_boxes(:exercise_ids, standard_exercises_list, :id, :name) %>
+    <%= f.collection_check_boxes(exercise_method, standard_exercises_list, :id, :name) %>
   </div>
   <br>
   <h2><%= nested_field_text %></h2>

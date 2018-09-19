@@ -9,6 +9,21 @@ class ProgramPlan < ApplicationRecord
 
   validates :name, :presence => true
 
+  def dup_exercise_ids=(array_of_ids)
+    array_of_ids.each do |id|
+      if id != ""
+        @exercise = Exercise.find(id)
+        @dup_exercise = @exercise.dup
+        @dup_exercise.standard = nil
+        self.exercises << @dup_exercise
+      end
+    end
+  end
+
+  def dup_exercise_ids
+    @exercises
+  end
+
   # featured programs will be shown on the program index page for the user to browse and choose. The featured boolean is there
   # so that other user's created programs do not show up on everybody's program index page.
 
