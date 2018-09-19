@@ -13,7 +13,7 @@
 <% end %>
 </ul>
 
-<h3>Routine</h3>
+<h3>Routine:</h3>
 
 <ul>
 <% @program_plan.days.each do |day| %>
@@ -31,7 +31,7 @@
 </ul>
 
 <br>
-<h3>Additional Resources</h3>
+<h3>Additional Resources:</h3>
 
 <% @program_plan.links.each do |link| %>
   <%= link_to link.description, link.name, target: :blank %>
