@@ -9,11 +9,13 @@
     <br/>
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <br>
-    <h2>Exercises</h2>
-    <%= f.collection_check_boxes(exercise_method, standard_exercises_list, :id, :name) %>
-  </div>
+  <% if show_exercises %>
+    <div class="field">
+      <br>
+      <h2><%= exercises_text %></h2>
+      <%= f.collection_check_boxes(exercise_method, standard_exercises_list, :id, :name) %>
+    </div>
+  <% end %>
   <br>
   <h2><%= nested_field_text %></h2>
   <div id='exercises'>
