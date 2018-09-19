@@ -13,6 +13,23 @@
 <% end %>
 </ul>
 
+<h3>Routine</h3>
+
+<ul>
+<% @program_plan.days.each do |day| %>
+  <li>
+    <%= day.name %>-
+    <% day.exercises.each_with_index do |exercise, i| %>
+      <% if i == day.exercises.length - 1 %>
+        <%= exercise.name %>
+      <% else %>
+        <%= exercise.name %>,
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
 <br>
 <h3>Additional Resources</h3>
 
