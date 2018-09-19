@@ -5,6 +5,7 @@ class JournalsController < ApplicationController
       redirect_to root_path
     else
       @journal = current_user.journal
+      @program_plan = current_user.program_plan
     end
   end
 

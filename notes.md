@@ -1,3 +1,5 @@
+need to:
+when users adopt program, add days to the duplicate
 
 extras?
 progress chart
