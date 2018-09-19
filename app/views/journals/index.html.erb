@@ -5,7 +5,7 @@
   <%= link_to 'Check out the programs page to start a program', program_plans_path %>
 <% else %>
   Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
-  Routine:
+  <br>Routine:
   <ul>
   <% @program_plan.days.each do |day| %>
     <li>

@@ -28,6 +28,13 @@ class ProgramPlansController < ApplicationController
       @featured_program.links.each do |link|
         @program_plan.links << link.dup
       end
+      @featured_program.days.each do |day|
+        dup_day = day.dup
+        day.exercises.each do |exercise|
+          dup_day.exercises << exercise.dup
+        end
+        @program_plan.days << dup_day
+      end
     else
       @program_plan = ProgramPlan.new(program_plan_params)
     end
