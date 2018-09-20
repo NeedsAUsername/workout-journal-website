@@ -22,3 +22,11 @@
   </ul>
 <% end %>
 </h3>
+
+<%= form_for [@journal, @entry] do |f| %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <%= f.label :comments %>
+  <%= f.text_area :comments %>
+  <%= f.submit %>
+<% end %>

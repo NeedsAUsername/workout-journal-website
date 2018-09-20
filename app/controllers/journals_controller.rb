@@ -6,6 +6,7 @@ class JournalsController < ApplicationController
     else
       @journal = current_user.journal
       @program_plan = current_user.program_plan
+      @entry = @journal.entries.build
     end
   end
 

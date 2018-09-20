@@ -1,5 +1,4 @@
-need to:
-when users adopt program, add days to the duplicate
+
 
 extras?
 progress chart
@@ -22,7 +21,7 @@ today is workout a, next is workout b
 
  data that will change according to today's workout
 exercise 1 weight: default to the last entry
-exericse 2 weight: default to the last entry
+exercise 2 weight: default to the last entry
 date : today
 Complete this workout -> submits data into journal history
 
