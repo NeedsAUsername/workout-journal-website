@@ -1,4 +1,5 @@
-
+next to do:
+  add checklist of exercises to entry form. find a way to include weight info too.
 
 extras?
 progress chart

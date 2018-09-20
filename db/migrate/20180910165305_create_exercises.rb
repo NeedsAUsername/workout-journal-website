@@ -7,6 +7,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
       t.integer :sets
       t.integer :reps
       t.boolean :standard
+      t.integer :entry_id
 
       t.timestamps
     end
