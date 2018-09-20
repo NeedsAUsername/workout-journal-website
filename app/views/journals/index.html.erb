@@ -1,9 +1,6 @@
 <h1><%= @journal.name %></h1>
 
 <h3>
-<% if @program_plan.nil? %>
-  <%= link_to 'Check out the programs page to start a program', program_plans_path %>
-<% else %>
   Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
   <br>Routine:
   <ul>
@@ -20,7 +17,6 @@
     </li>
   <% end %>
   </ul>
-<% end %>
 </h3>
 
 <%= form_for [@journal, @entry] do |f| %>

@@ -1,5 +1,5 @@
 next to do:
-  add checklist of exercises to entry form. find a way to include weight info too.
+  use the cocoon gem to make the exercises on the entry form able to be added/removed.
 
 extras?
 progress chart

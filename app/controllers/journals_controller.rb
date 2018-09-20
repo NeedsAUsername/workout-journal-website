@@ -3,6 +3,9 @@ class JournalsController < ApplicationController
   def index
     if current_user.journal.nil?
       redirect_to root_path
+    elsif current_user.program_plan.nil?
+      @journal = current_user.journal
+      render 'static/show'
     else
       @journal = current_user.journal
       @program_plan = current_user.program_plan
