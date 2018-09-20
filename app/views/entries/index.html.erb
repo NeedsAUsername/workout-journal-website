@@ -1,0 +1,8 @@
+<ul>
+  <% @journal.entries.each do |entry| %>
+    <li>
+      <%= entry.date.strftime('%m-%d-%Y') %><br>
+      Comments: <%= entry.comments %><br>
+    </li>
+  <% end %>
+</ul>
