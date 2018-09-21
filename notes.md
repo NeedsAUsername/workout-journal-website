@@ -1,15 +1,14 @@
 next to do:
   connect the days/routine to the entry form such that the exercises are set to the day's exercises and the weights are defaulted to the last time the exercise was done.
 
-  let users create routines.
+  let users create routines in custom program.
 
+  fix 'Program Plan Index And Show Pages user edits their current program' test
+  
 extras?
 progress chart
 goals
 
-to do?
-homepage(users/show) shows user name, stats, other info. has link to journal, programs.
-fix 'Program Plan Index And Show Pages user edits their current program' test
 
 
 journal index page
@@ -31,7 +30,12 @@ Complete this workout -> submits data into journal history
 
 
 HEROKU NOTES
+$ heroku run rake db:task_name
+examples:
 to migrate:
 $ heroku run rake db:migrate
 to seed:
 $ heroku run rake db:seed
+
+After migrations:
+$ heroku restart
