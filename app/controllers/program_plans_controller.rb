@@ -31,7 +31,9 @@ class ProgramPlansController < ApplicationController
       @featured_program.days.each do |day|
         dup_day = day.dup
         day.exercises.each do |exercise|
-          dup_day.exercises << exercise.dup
+          dup_exercise = exercise.dup
+          dup_exercise.standard = nil
+          dup_day.exercises << dup_exercise
         end
         @program_plan.days << dup_day
       end
