@@ -1,0 +1,12 @@
+<%= form_for [journal, entry] do |f| %>
+  <%= f.label :date %><br>
+  <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d') %><br>
+  <%= f.label :comments %><br>
+  <%= f.text_area :comments %><br>
+  <%= f.fields_for :exercises, entry.exercises.build do |e| %>
+    <%= e.collection_select(:name, program_plan.exercises, :name, :name) %>
+    <%= e.label :weight %>
+    <%= e.text_field :weight %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

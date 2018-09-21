@@ -1,6 +1,8 @@
 next to do:
   use the cocoon gem to make the exercises on the entry form able to be added/removed.
 
+  -need validations for weight. 
+
 extras?
 progress chart
 goals
