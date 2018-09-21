@@ -1,7 +1,5 @@
 next to do:
-  use the cocoon gem to make the exercises on the entry form able to be added/removed.
-
-  -need validations for weight. 
+  connect the days/routine to the entry form such that the exercises are set to the day's exercises and the weights are defaulted to the last time the exercise was done. 
 
 extras?
 progress chart
