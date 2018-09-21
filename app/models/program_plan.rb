@@ -46,7 +46,7 @@ class ProgramPlan < ApplicationRecord
         user = User.create(email: "admin#{index}@admin.com", name: 'admin', password: 'pass')
         user.build_program_plan(plan_attributes[:program_attributes])
       end
-      
+
       user.program_plan.links.build(plan_attributes[:program_links])
       add_standard_exercises_using_name(user.program_plan, plan_attributes[:exercises])
 
@@ -85,11 +85,11 @@ class ProgramPlan < ApplicationRecord
       ],
       days: [
         {
-          name: 1,
+          name: 'Workout A',
           exercises: ['Squat', 'Bench Press', 'Deadlift']
         },
         {
-          name: 2,
+          name: 'Workout B',
           exercises: ['Squat', 'Overhead Press', 'Deadlift']
         }
       ]
@@ -114,11 +114,11 @@ class ProgramPlan < ApplicationRecord
       ],
       days: [
         {
-          name: 1,
-          exercises: ['Squat', 'Bench Press', 'Deadlift']
+          name: 'Workout A',
+          exercises: ['Squat', 'Bench Press', 'Row']
         },
         {
-          name: 2,
+          name: 'Workout B',
           exercises: ['Squat', 'Overhead Press', 'Deadlift']
         }
       ]
@@ -143,12 +143,28 @@ class ProgramPlan < ApplicationRecord
       ],
       days: [
         {
-          name: 1,
-          exercises: ['Squat', 'Bench Press', 'Deadlift']
+          name: 'Workout A',
+          exercises: ['Chin-up', 'Overhead Press', 'Squat']
         },
         {
-          name: 2,
-          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+          name: 'Workout B',
+          exercises: ['Row', 'Bench Press', 'Deadlift']
+        },
+        {
+          name: 'Workout C',
+          exercises: ['Chin-up', 'Overhead Press', 'Squat']
+        },
+        {
+          name: 'Workout D',
+          exercises: ['Row', 'Bench Press', 'Squat']
+        },
+        {
+          name: 'Workout E',
+          exercises: ['Chin-up', 'Overhead Press', 'Deadlift']
+        },
+        {
+          name: 'Workout F',
+          exercises: ['Row', 'Bench Press', 'Squat']
         }
       ]
     }
@@ -172,12 +188,20 @@ class ProgramPlan < ApplicationRecord
       ],
       days: [
         {
-          name: 1,
-          exercises: ['Squat', 'Bench Press', 'Deadlift']
+          name: 'Workout A',
+          exercises: ['Overhead Press', 'Bench Press']
         },
         {
-          name: 2,
-          exercises: ['Squat', 'Overhead Press', 'Deadlift']
+          name: 'Workout B',
+          exercises: ['Deadlift', 'Squat']
+        },
+        {
+          name: 'Workout C',
+          exercises: ['Bench Press', 'Overhead Press']
+        },
+        {
+          name: 'Workout D',
+          exercises: ['Squat', 'Deadlift']
         }
       ]
     }

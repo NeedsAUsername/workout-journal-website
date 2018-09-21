@@ -1,5 +1,7 @@
 next to do:
-  connect the days/routine to the entry form such that the exercises are set to the day's exercises and the weights are defaulted to the last time the exercise was done. 
+  connect the days/routine to the entry form such that the exercises are set to the day's exercises and the weights are defaulted to the last time the exercise was done.
+
+  let users create routines.
 
 extras?
 progress chart
