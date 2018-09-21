@@ -4,8 +4,8 @@
       <%= entry.date.strftime('%m-%d-%Y') %><br>
       Exercises: <% entry.exercises.each do |exercise| %>
         <%= exercise.name %>- <%= exercise.weight %>
-      <% end %>
-      Comments: <%= entry.comments %><br>
+      <% end %><br>
+      Comments: <%= entry.comments %><br><br>
     </li>
   <% end %>
 </ul>

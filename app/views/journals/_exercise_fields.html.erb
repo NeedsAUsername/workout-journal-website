@@ -1,11 +1,6 @@
 <div class='nested-fields'>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description%>
-  </div>
+  <%= f.collection_select(:name, @program_plan.exercises, :name, :name) %>
+  <%= f.label :weight %>
+  <%= f.text_field :weight %>
   <%= link_to_remove_association "remove exercise", f %>
 </div>
