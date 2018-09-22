@@ -23,8 +23,9 @@
     </header>
     <div class="p3 column-10"
       <% if flash[:message].present? %>
-        <%= flash[:message] %>
+        <h1><%= flash[:message] %></h1>
       <% end %>
+        <h1></h1><!-- idk why, but need this for next headers to load properly -->
 
         <%= yield %>
 

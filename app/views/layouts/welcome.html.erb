@@ -17,7 +17,8 @@
       <% if flash[:message].present? %>
         <%= flash[:message] %>
       <% end %>
-
+        <h1></h1><!-- idk why, but need this for next headers to load properly -->
+        
         <%= yield %>
 
       <footer class="footer">
