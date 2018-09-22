@@ -16,13 +16,12 @@
       <h1 class="h3 center nav"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
       <div>
           <%= link_to 'Home', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'New Entry', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'Journal', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'Programs', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'New Entry', journals_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Journal', journal_entries_path(@user.journal), {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Programs', program_plans_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
       </div>
     </header>
-    <div class="column-3">
-    <div class="p3 column-10">
+    <div class="px3 column-9">
       <% if flash[:message].present? %>
         <h1><%= flash[:message] %></h1>
       <% end %>

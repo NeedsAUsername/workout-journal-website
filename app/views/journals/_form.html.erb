@@ -1,8 +1,12 @@
 <%= form_for [journal, entry] do |f| %>
-  <%= f.label :date %><br>
-  <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d') %><br>
-  <%= f.label :comments %><br>
-  <%= f.text_area :comments %><br>
+  <div class="column-3">
+    <%= f.label :date %><br>
+    <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d') %><br>
+  </div>
+  <div class="column-9">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %><br>
+  </div>
   <%= f.label :exercises %>
   <div id='exercises'>
     <%= f.fields_for :exercises, entry.exercises.build do |exercise| %>
