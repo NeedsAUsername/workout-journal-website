@@ -1,9 +1,28 @@
-<h1>Welcome <%= @user.name %> <img src="<%= @user.image %>" alt="" %></h1>
+<h1>Welcome <%= @user.name %></h1>
+
+<h1>Some helpful resources: </h1>
+
+<h2>Workout Music</h2>
+<ul>
+  <li><%= link_to 'Spotify Playlists', 'https://open.spotify.com/search/playlists/gym', target: :_blank %></li>
+  <li><%= link_to 'Youtube Playlists', 'https://www.youtube.com/results?search_query=workout+music', target: :_blank %></li>
+</ul>
+
+<h2><%= link_to '/r/fitness', 'https://www.reddit.com/r/Fitness/', target: :_blank %></h2>
+<ul>
+  <li><%= link_to 'Quick Start Guide', 'https://www.reddit.com/r/Fitness/wiki/getting_started', target: :_blank %></li>
+  <li><%= link_to 'Wiki', 'https://www.reddit.com/r/Fitness/wiki/index', target: :_blank %></li>
+</ul>
+
+<h2>Youtube Fitness Channels</h2>
+<ul>
+  <li><%= link_to 'Fitness Youtube Channels', 'https://www.youtube.com/results?sp=CAMSAhAC&search_query=fitness', target: :_blank %></li>
+  <li><%= link_to 'Weight-training', 'https://www.youtube.com/results?search_query=weight+training&sp=EgIQAg%253D%253D', target: :_blank %></li>
+  <li><%= link_to 'Weightlifting', 'https://www.youtube.com/results?sp=CAMSAhAC&search_query=weightlifting', target: :_blank %></li>
+</ul>
 
 
-<%= render partial: 'journal_link', locals: {user: @user} %>
-<br>
-<%= link_to 'Workout Programs', program_plans_path %>
+
 
 <footer>
 <%= form_for @user, :url => logout_path, :method => :delete do |f| %>
