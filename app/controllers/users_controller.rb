@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create, :show]
 
   def show
-    if !logged_in? # necessary for require_login to work properly 
-      render 'static/index'
+    if !logged_in? # necessary for require_login to work properly
+      render 'static/index', layout: 'welcome'
     else
       @user = User.find(session[:user_id])
     end

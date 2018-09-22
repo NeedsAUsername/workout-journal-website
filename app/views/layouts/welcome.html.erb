@@ -12,16 +12,8 @@
   </head>
 
   <body class="black" style="transition: background 0.2s ease-out 0s;">
-    <header class="left px2 py1 bg-darken-2 column-nav overflow-auto">
-      <h1 class="h3 center nav"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
-      <div>
-          <%= link_to 'Home', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'New Entry', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'Journal', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'Programs', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-      </div>
-    </header>
-    <div class="p3 column-10"
+
+    <div class="p3 center"
       <% if flash[:message].present? %>
         <%= flash[:message] %>
       <% end %>
