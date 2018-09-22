@@ -4,3 +4,4 @@
   <%= render partial: 'user_form', locals: {f: f, user: @user, attributes: @user.attributes_list} %>
   <%= f.submit 'Sign Up'%>
 <% end %>
+<p>Already have an account? <%= link_to 'Log In', login_path %></p>
