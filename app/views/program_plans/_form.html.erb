@@ -10,22 +10,26 @@
     <%= f.text_field :description %>
   </div>
   <% if show_standard_exercises %>
-    <div class="field">
+    <div class="column-5">
       <br>
       <h2>Standard Exercises</h2>
-      <%= f.collection_check_boxes(:dup_exercise_ids, @standard_exercises, :id, :name) %>
+      <%= f.collection_check_boxes(:dup_exercise_ids, @standard_exercises, :id, :name) do |c| %>
+        <p>
+          <%= c.label %> <%= c.check_box %>
+        </p>
+      <% end %>
     </div>
   <% end %>
   <br>
   <h2><%= nested_field_text %></h2>
-  <div id='exercises'>
+  <div id='exercises' class="column-5">
     <%= f.fields_for :exercises, nested_exercises_list do |exercise| %>
       <%= render partial: 'exercise_fields', locals: {f: exercise} %>
     <% end %>
-    <div class='links'>
+    <div>
       <%= link_to_add_association 'add exercise', f, :exercises %>
     </div>
   </div>
   <br>
-  <%= f.submit save_text %>
+  <%= f.submit save_text, {class: "button"} %>
 <% end %>

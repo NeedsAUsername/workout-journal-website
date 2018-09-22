@@ -7,21 +7,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,700|Merriweather:400,700">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
-    <div class="wrapper">
+  <body class="black" style="transition: background 0.2s ease-out 0s;">
+    <header class="left px2 py1 bg-darken-2 column-nav overflow-auto">
+      <h1 class="h3 center nav"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
+      <div>
+          <%= link_to 'Home', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'New Entry', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Journal', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Programs', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+      </div>
+    </header>
+    <div class="p3 column-10"
       <% if flash[:message].present? %>
         <%= flash[:message] %>
       <% end %>
 
         <%= yield %>
 
-      <footer class="branding">
-        <%= link_to 'Home', root_path %><br><br>
+      <footer class="footer">
         <small>&copy; 2018 <strong>WorkoutJournalProject</strong></small>
       </footer>
     </div>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   </body>
