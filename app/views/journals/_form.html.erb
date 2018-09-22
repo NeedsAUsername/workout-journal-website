@@ -7,7 +7,9 @@
     <%= f.label :comments %><br>
     <%= f.text_area :comments %><br>
   </div>
-  <%= f.label :exercises %>
+  <p class="px2">
+    <%= f.label :exercises %>
+  </p>
   <div id='exercises'>
     <%= f.fields_for :exercises, entry.exercises.build do |exercise| %>
       <%= render partial: 'exercise_fields', locals: {f: exercise, exercise_list: Exercise.all} %>

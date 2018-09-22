@@ -1,6 +1,8 @@
 <div class='nested-fields'>
+  <div class="column-3">
   <%= f.collection_select(:name, @program_plan.exercises, :name, :name) %>
   <%= f.label :weight %>
   <%= f.select :weight, (5..500).step(5), selected: 45 %>
   <%= link_to_remove_association "remove exercise", f %>
+  </div>
 </div>
