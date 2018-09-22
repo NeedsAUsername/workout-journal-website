@@ -1,16 +1,19 @@
 
 <div class="sidebar">
-  <h2>Available Actions</h2>
 <% if user.program_plan.nil? %>
   <%= form_for ProgramPlan.new do |f| %>
     <%= f.hidden_field :id, value: program_plan.id %>
-    <%= f.submit 'Start This Program'%>
+    <%= f.submit 'Start Program', {style: 'background-color:green',class: 'button'}%>
   <% end  %>
 <% elsif user.program_plan == program_plan %>
-  <%= link_to 'Edit Your Program', edit_program_plan_path(program_plan) %>
-  <%= form_for program_plan, method: :delete do |f| %>
-    <%= f.submit 'stop your current program' %>
-  <% end %>
+  <div class="column-2">
+    <%= link_to 'Edit Program', edit_program_plan_path(program_plan), {style: 'background-color:green',class: 'button'} %>
+  </div>
+  <div class="column-2">
+    <%= form_for @program_plan, method: :delete do |f| %>
+      <%= f.submit 'Stop Program', {style: 'background-color: red', class: 'button'} %>
+    <% end %>
+  </div><br><br>
 <% else %>
   <p>Cancel your current program if you want to start this one!</p>
 <% end %>

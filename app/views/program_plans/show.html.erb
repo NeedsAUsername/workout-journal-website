@@ -5,7 +5,7 @@
 <%= render partial:'available_actions', locals: {program_plan: @program_plan, user: @user} %>
 
 
-<h3>Exercises in this program: </h3>
+<h3>Exercises in this program</h3>
 
 <ul>
 <% @program_plan.exercises.each do |exercise| %>
@@ -13,7 +13,7 @@
 <% end %>
 </ul>
 
-<h3>Routine:</h3>
+<h3>Routine</h3>
 
 <ul>
 <% @program_plan.days.each do |day| %>
@@ -30,9 +30,10 @@
 <% end %>
 </ul>
 
-<br>
-<h3>Additional Resources:</h3>
 
+<h3>Learn More</h3>
+<ul>
 <% @program_plan.links.each do |link| %>
-  <%= link_to link.description, link.name, target: :blank %>
+  <li><%= link_to link.description, link.name, target: :blank %></li>
 <% end  %>
+</ul>
