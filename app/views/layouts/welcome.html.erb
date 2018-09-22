@@ -13,12 +13,11 @@
 
   <body class="black" style="transition: background 0.2s ease-out 0s;">
 
-    <div class="p3 center"
+    <div class="p3 column-5 center">
       <% if flash[:message].present? %>
         <%= flash[:message] %>
       <% end %>
-        <h1></h1><!-- idk why, but need this for next headers to load properly -->
-        
+
         <%= yield %>
 
       <footer class="footer">

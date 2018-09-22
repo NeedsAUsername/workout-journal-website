@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def new
     root_if_logged_in
     @user = User.new
+    render layout: 'welcome'
   end
 
   def create

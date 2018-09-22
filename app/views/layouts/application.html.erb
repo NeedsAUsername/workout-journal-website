@@ -21,11 +21,11 @@
           <%= link_to 'Programs', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
       </div>
     </header>
-    <div class="p3 column-10"
+    <div class="column-3">
+    <div class="p3 column-10">
       <% if flash[:message].present? %>
         <h1><%= flash[:message] %></h1>
       <% end %>
-        <h1></h1><!-- idk why, but need this for next headers to load properly -->
 
         <%= yield %>
 
