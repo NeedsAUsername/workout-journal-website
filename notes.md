@@ -3,10 +3,8 @@ next to do:
 
   let users create routines in custom program.
 
-  fix 'Program Plan Index And Show Pages user edits their current program' test
+  fix all the tests.
 
-for css:
-  different layout for logged in and signed out 
 
 extras?
 progress chart

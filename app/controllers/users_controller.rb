@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def stats
+    
+  end
+
   private
 
   def user_params
