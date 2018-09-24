@@ -9,7 +9,26 @@
 
 <ul>
 <% @program_plan.exercises.each do |exercise| %>
-  <li><%= link_to exercise.name, program_plan_exercise_path(@program_plan, exercise) %></li>
+  <div class="modul-container">
+    <button id="show<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='block';
+      document.getElementById('hide<%=exercise.name%>').style.display='block'; document.getElementById('show<%=exercise.name%>').style.display='none'"><%= exercise.name %></button>
+    <button id="hide<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='none';
+      document.getElementById('hide<%=exercise.name%>').style.display='none'; document.getElementById('show<%=exercise.name%>').style.display='block'" style='display:none'><%= exercise.name %></button>
+    <ul>
+      <ul id="<%= exercise.name %>" style="display:none">
+          <div class="modul-content">
+            <div>
+              <p><%= exercise.description %></p>
+              <% if exercise_found = Exercise.all.find_by(name: exercise.name, standard: true) %>
+                <% exercise_found.links.each do |link| %>
+                  <p><%= link_to link.description, link.name, target: :_blank%></p>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+      </ul>
+    </ul>
+  </div>
 <% end %>
 </ul>
 

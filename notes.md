@@ -6,6 +6,12 @@ next to do:
   fix all the tests.
 
 
+javascript to research and incorporate:
+- modals
+- rollover
+
+
+
 extras?
 progress chart
 goals
