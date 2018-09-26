@@ -1,3 +1,26 @@
+/* Custom CSS */
+#barbell_logo {
+  display: none;
+}
+
+
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.column-nav {
+  box-sizing: border-box;
+  padding-left: 16px;
+  padding-right: 16px;
+  width:16.666666666666664%;
+  min-height: 1000px;
+}
 
 .w3-container, .w3-panel {
     padding: 0.01em 16px;
@@ -31,24 +54,7 @@
   .xl-col-3 { width: 25% }
 }
 
-/* Custom CSS */
-.footer {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-}
 
-.column-nav {
-  box-sizing: border-box;
-  padding-left: 16px;
-  padding-right: 16px;
-  width:16.666666666666664%;
-  min-height: 1000px;
-}
 
 /* Color */
 .color-inherit { color: inherit }
@@ -403,28 +409,11 @@ button:before,
   padding: 0;
 }
 
-.button:hover { text-decoration: none }
-
-/* Basscss Defaults */
-
-/*
-   COLOR VARIABLES
-   - Cool
-   - Warm
-   - Gray Scale
-*/
-
-:root {
-
-  /* Cool */
-
-
-  /* Warm */
-
-
-  /* Gray scale */
-
+.button:hover {
+  text-decoration: none;
+  color: red;
 }
+
 /* @import 'basscss-base-tables'; */
 /* Basscss Base Typography */
 
