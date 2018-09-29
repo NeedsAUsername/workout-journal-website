@@ -2,7 +2,23 @@
 #barbell_logo {
   display: none;
 }
-
+.button::before {
+  content: url(gym.png);
+  float: left;
+  opacity: 0;
+}
+.button::after {
+  content: url(gym.png);
+  float: right;
+  opacity: 0;
+}
+.button:hover::before {
+  opacity: 1;
+  color: silver;
+}
+.button:hover::after {
+  opacity: 1;
+}
 
 .footer {
   position: relative;
@@ -411,7 +427,6 @@ button:before,
 
 .button:hover {
   text-decoration: none;
-  color: red;
 }
 
 /* @import 'basscss-base-tables'; */
