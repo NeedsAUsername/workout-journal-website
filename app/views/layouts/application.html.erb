@@ -15,15 +15,15 @@
     <header class="left px2 py1 bg-darken-2 column-nav overflow-auto">
       <h1 class="h3 center nav"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
       <div>
-          <%= link_to 'Home', root_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'New Entry', journals_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Home', root_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
+          <%= link_to 'New Entry', journals_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
           <% if @user.journal %>
-            <%= link_to 'Journal', journal_entries_path(@user.journal), {class: "block h6 caps button ml1 mr1 center"} %><br>
+            <%= link_to 'Journal', journal_entries_path(@user.journal), {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
           <% else %>
-            <%= link_to 'Journal', new_journal_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+            <%= link_to 'Journal', new_journal_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
           <% end %>
-          <%= link_to 'Programs', program_plans_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
-          <%= link_to 'Stats', stats_path, {class: "block h6 caps button ml1 mr1 center"} %><br>
+          <%= link_to 'Programs', program_plans_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
+          <%= link_to 'Stats', stats_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
       </div>
     </header>
     <div class="px3 column-9">
