@@ -14,14 +14,14 @@
   <body class="black" style="transition: background 0.2s ease-out 0s;">
     <div class="p3 center column-4", style="margin-left:33%;">
       <% if flash[:message].present? %>
-      <div class="button flash">
+      <div class="flash">
         <%= flash[:message] %>
       </div>
       <% end %>
 
         <%= yield %>
 
-      <footer class="footer" style="margin-top: -10px;">
+      <footer class="footer">
         <small>&copy; 2018 <strong>WorkoutJournalProject</strong></small>
       </footer>
     </div>
