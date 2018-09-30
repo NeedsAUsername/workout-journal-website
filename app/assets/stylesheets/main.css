@@ -5,50 +5,15 @@ html {margin:0;padding:0;height:100%;}
   display: none;
 }
 
-/* Modal */
-
-.bg-modal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
+.flash {
+  position: relative;
+  top: 50px;
+  z-index: 1;
 }
 
-.modal-content {
-  background-color: white;
-  width: 500px;
-  height: 600px;
-  border-radius: 4px;
-  text-align: center;
-  padding: 40px;
+input[type=submit]{
+  cursor: pointer;
 }
-
-
-
-
-/* Nav Buttons */
-.button-nav::before {
-  content: url(gym.png);
-  opacity: 0;
-  float: left;
-  transition: .5s;
-}
-.button-nav::after {
-  content: url(gym.png);
-  opacity: 0;
-  float: right;
-  transition: .5s;
-}
-.button-nav:hover::before, .button-nav:hover::after {
-  opacity: 1;
-}
-/*  */
-
 
 .footer {
   position: relative;
@@ -68,6 +33,61 @@ html {margin:0;padding:0;height:100%;}
   width:16.666666666666664%;
   min-height: 1000px;
 }
+
+/* Modal */
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  width: 500px;
+  height: 600px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 42px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+
+/* Nav Buttons */
+
+.button-nav::before {
+  content: url(gym.png);
+  opacity: 0;
+  float: left;
+  transition: .5s;
+}
+.button-nav::after {
+  content: url(gym.png);
+  opacity: 0;
+  float: right;
+  transition: .5s;
+}
+.button-nav:hover::before, .button-nav:hover::after {
+  opacity: 1;
+}
+/*  */
+
+
 
 
 

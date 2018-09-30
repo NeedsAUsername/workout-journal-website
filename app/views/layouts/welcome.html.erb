@@ -14,7 +14,9 @@
   <body class="black" style="transition: background 0.2s ease-out 0s;">
     <div class="p3 center column-4", style="margin-left:33%;">
       <% if flash[:message].present? %>
+      <div class="button flash">
         <%= flash[:message] %>
+      </div>
       <% end %>
 
         <%= yield %>
@@ -24,14 +26,24 @@
       </footer>
     </div>
 
-    <div class="bg-modal">
+    <div class="modal-bg">
       <div class="modal-content">
+        <div class="close-modal">+</div>
         <h1>Login</h1>
         <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
       </div>
     </div>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+      document.getElementById('login').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('.modal-bg').style.display = 'flex';
+      });
+      document.querySelector('.close-modal').addEventListener('click', function(e) {
+        document.querySelector('.modal-bg').style.display = 'none';
+      });
+    </script>
   </body>
 </html>
