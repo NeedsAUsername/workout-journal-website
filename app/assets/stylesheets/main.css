@@ -91,12 +91,16 @@ input[type=submit]{
   content: url(gym.png);
   opacity: 0;
   float: left;
+  position: relative;
+  right: 10px;
   transition: .5s;
 }
 .button-nav::after {
   content: url(gym.png);
   opacity: 0;
   float: right;
+  position: relative;
+  left: 10px;
   transition: .5s;
 }
 .button-nav:hover::before, .button-nav:hover::after {
