@@ -10,7 +10,7 @@
     <%= f.text_field :description %>
   </div>
   <% if show_standard_exercises %>
-    <div class="column-5">
+    <div class="column-6">
       <br>
       <h2>Standard Exercises</h2>
       <%= f.collection_check_boxes(:dup_exercise_ids, @standard_exercises, :id, :name) do |c| %>
