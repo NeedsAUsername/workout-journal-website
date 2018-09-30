@@ -1,7 +1,4 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user, :url => signup_path do |f| %>
-  <%= render partial: 'user_form', locals: {f: f, user: @user, attributes: @user.attributes_list} %>
-  <%= f.submit 'Sign Up'%>
-<% end %>
+<%= render partial: 'signup_form', locals: {user: @user} %>
 <p>Already have an account? <%= link_to 'Log In', login_path %></p>

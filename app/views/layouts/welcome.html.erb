@@ -26,23 +26,38 @@
       </footer>
     </div>
 
-    <div class="modal-bg">
+    <div class="modal-bg login-form">
       <div class="modal-content">
         <div class="close-modal">+</div>
         <h1>Login</h1>
         <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
       </div>
     </div>
+    <div class="modal-bg signup-form">
+      <div class="modal-content">
+        <div class="close-modal">+</div>
+        <h1>Login</h1>
+        <%= render partial: 'users/signup_form', locals:{user: User.new} %>
+      </div>
+    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript">
-      document.getElementById('login').addEventListener('click', function(e) {
+      document.getElementById('login-link').addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector('.modal-bg').style.display = 'flex';
+        document.querySelector('.login-form').style.display = 'flex';
       });
-      document.querySelector('.close-modal').addEventListener('click', function(e) {
-        document.querySelector('.modal-bg').style.display = 'none';
+      document.getElementById('signup-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('.signup-form').style.display = 'flex';
       });
+      let closes = document.querySelectorAll('.close-modal');
+      for (let i = 0; i < closes.length; i++) {
+        closes[i].addEventListener('click', function(e) {
+          document.querySelector('.signup-form').style.display = 'none';
+          document.querySelector('.login-form').style.display = 'none';
+        });
+      }
     </script>
   </body>
 </html>

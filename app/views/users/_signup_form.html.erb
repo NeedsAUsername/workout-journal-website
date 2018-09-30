@@ -1,0 +1,4 @@
+<%= form_for user, :url => signup_path do |f| %>
+  <%= render partial: 'users/user_form', locals: {f: f, user: user, attributes: user.attributes_list} %>
+  <%= f.submit 'Sign Up'%>
+<% end %>
