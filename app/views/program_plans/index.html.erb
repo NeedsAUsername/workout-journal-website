@@ -1,13 +1,12 @@
 
 <% if @user.program_plan.nil? %>
-  <br><h2><%= link_to 'Want to start a custom program?', new_program_plan_path %></h2>
+  <br><h2><%= link_to 'Create a Custom Program', new_program_plan_path %></h2>
 <% else %>
   <h1>Your Current Program</h1>
   <h3 class="content"><%= link_to @user.program_plan.name, program_plan_path(@user.program_plan) %></h3>
   <h4 class="content"><%= @user.program_plan.description %></h4>
 <% end %>
 
-<br><br>
 <h1>Featured Programs</h1>
 <% if @program_plans.detect {|plan| plan.featured}.nil? %>
   <h1>Run rake db:seed to create featured programs and standard exercises! </h1>
