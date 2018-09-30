@@ -12,16 +12,23 @@
   </head>
 
   <body class="black" style="transition: background 0.2s ease-out 0s;">
-    <div class="p3 column-4 center" style="margin-left: 33%;">
+    <div class="p3 center column-4", style="margin-left:33%;">
       <% if flash[:message].present? %>
         <%= flash[:message] %>
       <% end %>
 
         <%= yield %>
 
-      <footer class="footer">
+      <footer class="footer" style="margin-top: -10px;">
         <small>&copy; 2018 <strong>WorkoutJournalProject</strong></small>
       </footer>
+    </div>
+
+    <div class="bg-modal">
+      <div class="modal-content">
+        <h1>Login</h1>
+        <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
+      </div>
     </div>
 
 
