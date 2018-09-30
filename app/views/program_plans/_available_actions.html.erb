@@ -3,15 +3,15 @@
 <% if user.program_plan.nil? %>
   <%= form_for ProgramPlan.new do |f| %>
     <%= f.hidden_field :id, value: program_plan.id %>
-    <%= f.submit 'Start Program', {style: 'background-color:green',class: 'button'}%>
+    <%= f.submit 'Start Program', {style: 'background-color:green'}%>
   <% end  %>
 <% elsif user.program_plan == program_plan %>
-  <div class="column-2">
-    <%= link_to 'Edit Program', edit_program_plan_path(program_plan), {style: 'background-color:green',class: 'button'} %>
+  <div class="column-4">
+    <%= link_to 'Edit Program', edit_program_plan_path(program_plan), {class: 'button', id: 'edit-button'} %>
   </div>
-  <div class="column-2">
+  <div class="column-4">
     <%= form_for @program_plan, method: :delete do |f| %>
-      <%= f.submit 'Stop Program', {style: 'background-color: red', class: 'button'} %>
+      <%= f.submit 'Stop Program', {class: 'button', id: 'stop-button'} %>
     <% end %>
   </div><br><br>
 <% else %>

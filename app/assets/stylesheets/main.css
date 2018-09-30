@@ -5,6 +5,18 @@ html {margin:0;padding:0;height:100%;}
   display: none;
 }
 
+#edit-button {
+  background-color: green;
+  width: auto;
+  min-width: 150px;
+  text-align: center;
+}
+#stop-button {
+  background-color: red;
+  width: auto;
+  min-width: 150px;
+}
+
 .flash {
   position: relative;
   top: 10px;
