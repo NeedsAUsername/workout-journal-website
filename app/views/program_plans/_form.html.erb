@@ -22,7 +22,7 @@
   <% end %>
   <br>
   <h2><%= nested_field_text %></h2>
-  <div id='exercises' class="column-5">
+  <div id='exercises'>
     <%= f.fields_for :exercises, nested_exercises_list do |exercise| %>
       <%= render partial: 'exercise_fields', locals: {f: exercise} %>
     <% end %>
