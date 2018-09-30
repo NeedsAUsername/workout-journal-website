@@ -38,12 +38,17 @@ input[type=submit]{
   text-align: center;
 }
 
+/* Sidebar Nav */
+
 .column-nav {
   box-sizing: border-box;
-  padding-left: 16px;
-  padding-right: 16px;
   width:16.666666666666664%;
-  min-height: 1000px;
+  height: 100%;
+}
+
+.nav {
+  position: fixed;
+  height: 100%;
 }
 
 /* Modal */
