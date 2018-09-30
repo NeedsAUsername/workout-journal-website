@@ -22,12 +22,12 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:message] = 'Email taken' if User.email_taken?(@user.email)
-      render 'new'
+      render 'new', layout: 'welcome'
     end
   end
 
   def stats
-    
+
   end
 
   private
