@@ -4,7 +4,9 @@
   <ul>
   <% @program_plan.days.each do |day| %>
     <li>
-      <%= day.name %>-
+      <div class="workout-link links">
+        <%= day.name %>
+      </div>-
       <% day.exercises.each_with_index do |exercise, i| %>
         <% if i == day.exercises.length - 1 %>
           <%= exercise.name %>
@@ -25,3 +27,18 @@
     nested_exercises_list: @program_plan.exercises
   }
 %>
+
+
+<script type="text/javascript">
+  let workouts = document.querySelectorAll('.workout-link');
+  for (let i = 0; i < workouts.length; i++) {
+    workouts[i].addEventListener('click', function(e){
+      let allForms = document.querySelectorAll('.workout-form');
+      for (let i = 0; i < allForms.length; i++) {
+        allForms[i].style.display = 'none';
+      }
+      let currentForm = document.querySelector(`.${workouts[i].textContent.trim().split(' ').join('')}`);
+      currentForm.style.display = 'block';
+    })
+  }
+</script>

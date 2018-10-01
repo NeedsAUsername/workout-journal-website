@@ -38,6 +38,11 @@ input[type=submit]{
   text-align: center;
 }
 
+.workout-link {
+  cursor: pointer;
+  color: blue;
+}
+
 /* Sidebar Nav */
 
 .column-nav {
