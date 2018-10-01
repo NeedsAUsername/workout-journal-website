@@ -1,23 +1,16 @@
-<h3>
-  Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
-  <br>Routine:
-  <ul>
-  <% @program_plan.days.each do |day| %>
-    <li>
-      <div class="workout-link links">
+
+<div class='top-bar'>
+  <h3>
+    Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
+    <br>Routine:<br>
+    <% @program_plan.days.each do |day| %>
+      <div class="workout-link">
         <%= day.name %>
-      </div>-
-      <% day.exercises.each_with_index do |exercise, i| %>
-        <% if i == day.exercises.length - 1 %>
-          <%= exercise.name %>
-        <% else %>
-          <%= exercise.name %>,
-        <% end %>
-      <% end %>
-    </li>
-  <% end %>
-  </ul>
-</h3>
+      </div>
+    <% end %>
+  </h3>
+</div>
+
 <h2>Log your workout</h2>
 <%= render partial: 'form',
   locals: {

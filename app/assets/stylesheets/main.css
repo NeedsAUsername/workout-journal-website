@@ -38,9 +38,19 @@ input[type=submit]{
   text-align: center;
 }
 
+/* new entry nav bar */
+.top-bar {
+  border-bottom-style: solid;
+  border-bottom-width: 10px;
+  border-bottom-color: green;
+  padding-bottom: 15px;
+}
+
 .workout-link {
   cursor: pointer;
   color: blue;
+  float: left;
+  margin-right: 10px;
 }
 
 /* Sidebar Nav */
