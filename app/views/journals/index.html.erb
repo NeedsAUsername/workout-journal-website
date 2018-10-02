@@ -23,15 +23,28 @@
 
 
 <script type="text/javascript">
-  var workouts = document.querySelectorAll('.workout-link');
+(function createFormsFromWorkout() {
+  const workouts = document.querySelectorAll('.workout-link');
   for (let i = 0; i < workouts.length; i++) {
     workouts[i].addEventListener('click', function(e){
-      let allForms = document.querySelectorAll('.workout-form');
-      for (let i = 0; i < allForms.length; i++) {
-        allForms[i].style.display = 'none';
+      let workoutForms = document.querySelectorAll('.workout-form');
+      for (let i = 0; i < workoutForms.length; i++) {
+        workoutForms[i].style.display = 'none';
       }
       let currentForm = document.querySelector(`.${workouts[i].textContent.trim().split(' ').join('')}`);
-      currentForm.style.display = 'block';
+      currentForm.style.display = "block";
     })
   }
+  const submitButton = document.querySelector('input[type="submit"]')
+  submitButton.addEventListener('click', function(e) {
+    let workoutForms = document.querySelectorAll('.workout-form');
+    for (let i = 0; i < workouts.length; i++) {
+      if (workoutForms[i].style.display === 'none') {
+        workoutForms[i].textContent = "";
+      }
+    }
+  })
+})();
+
+
 </script>
