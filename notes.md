@@ -1,7 +1,6 @@
 next to do:
-  right now entry form submits the hidden forms. Maybe change the workout links to add elements, rather than displaying them.
 
-  connect the days/routine to the entry form such that the exercises are set to the day's exercises and the weights are defaulted to the last time the exercise was done.
+  connect the days/routine to the entry form such that the weights are defaulted to the last time the exercise was done.
 
   let users create routines in custom program.
 
