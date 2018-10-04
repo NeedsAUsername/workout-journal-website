@@ -5,11 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.5.1'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
-ruby '~> 2.3.3'
 
 gem 'jquery-rails'
 gem 'cocoon' #for creating nested forms
