@@ -3,6 +3,11 @@ next to do:
   connect the days/routine to the entry form such that the weights are defaulted to the last time the exercise was done.
 
   let users create routines in custom program.
+  let users edit routines
+
+  sort routines by order. (add an order number to database?)
+  sort exercises in routine by order. (add an order number to database?)
+  let users change the order of routines and exercises
 
 
 javascript to research and incorporate:
