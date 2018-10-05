@@ -13,6 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+// require_tree .     Tree requires all js files in the folder. Enable by adding =.
 //= require jquery
 //= require cocoon

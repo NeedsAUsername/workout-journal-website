@@ -7,9 +7,52 @@
 <%= link_to 'Sign Up', signup_path, id: 'signup-link' %>, or <%= link_to 'Log in', login_path, id:'login-link' %><br>
 <%= link_to image_tag('facebook_login_icon.png'), '/auth/facebook' %>
 
-
-
 <footer class="footer">
 <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 <br>
 </footer>
+
+<%= content_for :modal do %>
+<div class="modal-bg login-form">
+  <div class="modal-content">
+    <div class="close-modal">+</div>
+    <h1>Login</h1>
+    <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
+  </div>
+</div>
+<div class="modal-bg signup-form">
+  <div class="modal-content">
+    <div class="close-modal">+</div>
+    <h1>Signup</h1>
+    <%= render partial: 'users/signup_form', locals:{user: User.new} %>
+  </div>
+</div>
+<% end %>
+
+<%= content_for :js do %>
+  <script type="text/javascript">
+    window.onload=function() {
+      generateModals();
+    };
+
+    function generateModals() {
+      console.log('trying');
+      document.getElementById('login-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('.login-form').style.display = 'flex';
+      });
+      document.getElementById('signup-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('.signup-form').style.display = 'flex';
+      });
+      let closes = document.querySelectorAll('.close-modal');
+      for (let i = 0; i < closes.length; i++) {
+        closes[i].addEventListener('click', function(e) {
+          document.querySelector('.signup-form').style.display = 'none';
+          document.querySelector('.login-form').style.display = 'none';
+        });
+      }
+      console.log('success');
+    }
+  </script>
+<% end %>

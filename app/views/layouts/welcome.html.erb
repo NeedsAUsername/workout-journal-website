@@ -25,38 +25,7 @@
         <small>&copy; 2018 <strong>WorkoutJournalProject</strong></small>
       </footer>
     </div>
-
-    <div class="modal-bg login-form">
-      <div class="modal-content">
-        <div class="close-modal">+</div>
-        <h1>Login</h1>
-        <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
-      </div>
-    </div>
-    <div class="modal-bg signup-form">
-      <div class="modal-content">
-        <div class="close-modal">+</div>
-        <h1>Login</h1>
-        <%= render partial: 'users/signup_form', locals:{user: User.new} %>
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      document.getElementById('login-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.login-form').style.display = 'flex';
-      });
-      document.getElementById('signup-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.signup-form').style.display = 'flex';
-      });
-      let closes = document.querySelectorAll('.close-modal');
-      for (let i = 0; i < closes.length; i++) {
-        closes[i].addEventListener('click', function(e) {
-          document.querySelector('.signup-form').style.display = 'none';
-          document.querySelector('.login-form').style.display = 'none';
-        });
-      }
-    </script>
+    <%= yield :modal %>
   </body>
+  <%= yield :js %>
 </html>
