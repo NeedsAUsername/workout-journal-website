@@ -1,9 +1,11 @@
 <h1>Lift
-  <%= image_tag 'barbell-hold.png', {id: 'barbell-logo', onmouseover: "document.getElementById('barbell-logo').src = 'assets/barbell-weightlifting.png'", onmouseleave: "document.getElementById('barbell-logo').src ='assets/barbell-hold.png'"} %>
+  <%= image_tag 'barbell-hold.png', {id: 'barbell-logo', onmouseover: "barbellLogoMouseOver()",
+    onmouseleave: "barbellLogoMouseLeave()"} %>
 </h1>
 <h1>Log  <%= image_tag 'report.png' %></h1>
 <h1>Grow  <%= image_tag 'muscle.png' %></h1>
 <h2>A Program-driven Workout Journal</h2>
+
 <%= link_to 'Sign Up', signup_path, id: 'signup-link' %>, or <%= link_to 'Log in', login_path, id:'login-link' %><br>
 <%= link_to image_tag('facebook_login_icon.png'), '/auth/facebook' %>
 
@@ -16,11 +18,8 @@
 <% end %>
 
 <%= content_for :js do %>
-  <script type="text/javascript">
-    window.onload=function() {
-      generateModals();
-    };
-
-    <%= render partial: 'static/modals_js', locals: {} %>
-  </script>
+    <script type="text/javascript">
+      <%= render partial: 'static/modals_js', locals: {} %>
+      <%= render partial: 'static/icons_js', locals: {} %>
+    </script>
 <% end %>

@@ -1,5 +1,8 @@
+
+window.onload=function() {
+  generateModals();
+};
 function generateModals() {
-  console.log('trying');
   document.getElementById('login-link').addEventListener('click', function(e) {
     e.preventDefault();
     document.querySelector('.login-form').style.display = 'flex';
@@ -15,5 +18,4 @@ function generateModals() {
       document.querySelector('.login-form').style.display = 'none';
     });
   }
-  console.log('success');
 }
