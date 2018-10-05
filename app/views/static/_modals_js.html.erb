@@ -1,0 +1,19 @@
+function generateModals() {
+  console.log('trying');
+  document.getElementById('login-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.login-form').style.display = 'flex';
+  });
+  document.getElementById('signup-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.signup-form').style.display = 'flex';
+  });
+  let closes = document.querySelectorAll('.close-modal');
+  for (let i = 0; i < closes.length; i++) {
+    closes[i].addEventListener('click', function(e) {
+      document.querySelector('.signup-form').style.display = 'none';
+      document.querySelector('.login-form').style.display = 'none';
+    });
+  }
+  console.log('success');
+}

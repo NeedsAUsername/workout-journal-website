@@ -13,20 +13,7 @@
 </footer>
 
 <%= content_for :modal do %>
-<div class="modal-bg login-form">
-  <div class="modal-content">
-    <div class="close-modal">+</div>
-    <h1>Login</h1>
-    <%= render partial: 'sessions/login_form', locals:{user: User.new} %>
-  </div>
-</div>
-<div class="modal-bg signup-form">
-  <div class="modal-content">
-    <div class="close-modal">+</div>
-    <h1>Signup</h1>
-    <%= render partial: 'users/signup_form', locals:{user: User.new} %>
-  </div>
-</div>
+  <%= render partial: 'static/modals', locals: {user: User.new} %>
 <% end %>
 
 <%= content_for :js do %>
@@ -35,24 +22,6 @@
       generateModals();
     };
 
-    function generateModals() {
-      console.log('trying');
-      document.getElementById('login-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.login-form').style.display = 'flex';
-      });
-      document.getElementById('signup-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.signup-form').style.display = 'flex';
-      });
-      let closes = document.querySelectorAll('.close-modal');
-      for (let i = 0; i < closes.length; i++) {
-        closes[i].addEventListener('click', function(e) {
-          document.querySelector('.signup-form').style.display = 'none';
-          document.querySelector('.login-form').style.display = 'none';
-        });
-      }
-      console.log('success');
-    }
+    <%= render partial: 'static/modals_js', locals: {} %>
   </script>
 <% end %>
