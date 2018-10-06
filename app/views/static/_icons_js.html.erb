@@ -1,10 +1,8 @@
 
-function barbellLogoMouseOver() {
-  let icon = document.getElementById('barbell-logo');
-  icon.src = '<%= asset_path('barbell-weightlifting.png') %>';
+function barbellLogoMouseOver(element) {
+  element.src = '<%= asset_path('barbell-weightlifting.png') %>';
 }
 
-function barbellLogoMouseLeave() {
-  let icon = document.getElementById('barbell-logo');
-  icon.src = '<%= asset_path('barbell-hold.png') %>';
+function barbellLogoMouseLeave(element) {
+  element.src = '<%= asset_path('barbell-hold.png') %>';
 }

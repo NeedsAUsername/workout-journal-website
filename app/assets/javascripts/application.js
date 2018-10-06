@@ -16,3 +16,4 @@
 // require_tree .     Tree requires all js files in the folder. Enable by adding =.
 //= require jquery
 //= require cocoon
+//= require main
