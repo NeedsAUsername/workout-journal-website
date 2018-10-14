@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :exercises, only: [:index, :show]
   end
 
+  get '/routine', to: 'program_plans#routine'
+  post '/routine', to: 'program_plans#routine'
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
