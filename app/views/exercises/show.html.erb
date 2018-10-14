@@ -1,5 +1,0 @@
-<h1><%= @exercise.name %></h1>
-<p><%= @exercise.description %></p>
-<% @exercise.links.each do |link| %>
-  <p><%= link_to link.description, link.name, target: :blank %></p>
-<% end %>

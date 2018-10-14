@@ -15,14 +15,7 @@
     <div class="workout-form <%= day.name.split.join %>" style='display: none'>
         <% day.exercises.each do |exercise| %>
           <%= f.fields_for :exercises, entry.exercises.build do |f| %>
-            <div class='nested-fields'>
-              <div class="column-3 mb3">
-              <%= f.collection_select(:name, @program_plan.exercises, :name, :name, selected: exercise.name) %>
-              <%= f.label :weight %>
-              <%= f.select :weight, (5..500).step(5), selected: 45 %>
-              <%= link_to_remove_association "remove exercise", f %>
-              </div>
-            </div>
+            <%= render partial: 'exercise_fields', locals: {f: f, exercises: @program_plan.exercises, selected: exercise.name} %>
           <% end %>
       <% end %>
     </div>
@@ -30,11 +23,9 @@
 
 
   <div id='exercises'>
-    <!-- <%= f.fields_for :exercises, entry.exercises.build do |exercise| %>
-      <%= render partial: 'exercise_fields', locals: {f: exercise} %>
-    <% end %> -->
     <div class='links'>
-      <%= link_to_add_association 'add exercise', f, :exercises %>
+      <%= link_to_add_association 'add exercise', f, :exercises,
+      partial: 'exercise_fields', render_options: {locals: {exercises: @program_plan.exercises, selected: nil}} %>
     </div>
   </div>
   <br>
