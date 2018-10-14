@@ -77,10 +77,6 @@ class ProgramPlansController < ApplicationController
     redirect_to program_plans_path
   end
 
-  def routine
-    @program_plan = current_user.program_plan
-  end
-
   private
 
   def program_plan_params
