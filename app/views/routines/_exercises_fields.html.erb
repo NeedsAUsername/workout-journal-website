@@ -1,0 +1,6 @@
+<div class='nested-fields'>
+  <div class="column-6 mb3">
+  <%= f.collection_select(:name, exercises_select, :name, :name) %>
+  <%= link_to_remove_association "remove exercise", f %>
+  </div>
+</div>
