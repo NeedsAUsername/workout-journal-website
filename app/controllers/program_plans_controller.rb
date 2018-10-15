@@ -6,6 +6,11 @@ class ProgramPlansController < ApplicationController
 
   def show
     @program_plan = ProgramPlan.find(params[:id])
+    if @program_plan.user == current_user || @program_plan.featured == true
+    else
+      flash[:message] = "You don't have permission to view that page"
+      redirect_to root_path
+    end
   end
 
   def new
@@ -50,9 +55,6 @@ class ProgramPlansController < ApplicationController
 
   def edit
     @program_plan = current_user.program_plan
-    @standard_exercises = Exercise.all.select {|ex| ex.standard }
-    @custom_exercises = @program_plan.exercises.select {|ex| ex.standard == nil }
-    @standard_or_custom_exercises = @standard_exercises + @custom_exercises
   end
 
   def update
@@ -66,13 +68,9 @@ class ProgramPlansController < ApplicationController
   end
 
   def destroy
-    if current_user.program_plan.featured
-      current_user.program_plan = nil
-    else
-      custom_exercises = current_user.program_plan.exercises.select {|ex| ex.standard == false}
-      User.destroy_objects(custom_exercises)
-      current_user.program_plan.destroy
-    end
+    User.destroy_objects(current_user.program_plan.exercises)
+    current_user.program_plan.destroy
+
     current_user.save
     redirect_to program_plans_path
   end
