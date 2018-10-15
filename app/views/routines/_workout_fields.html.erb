@@ -5,8 +5,12 @@
   </div>
   <div class="field">
     <%= f.fields_for :exercises, Exercise.new do |exercise| %>
-      <%= render partial: 'exercises_fields', locals: {f: exercise, exercises_select: @program_plan.exercises} %>
+      <%= render partial: 'exercises_fields', locals: {f: exercise} %>
     <% end %>
+    <div class="">
+      <%= link_to_add_association 'add exercise', f, :exercises,
+      partial: 'exercises_fields' %>
+    </div>
   </div>
   <%= link_to_remove_association "remove workout", f %>
 </div>
