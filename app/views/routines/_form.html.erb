@@ -1,7 +1,7 @@
 
 <%= form_for program_plan do |f| %>
   <h2><%= nested_field_text %></h2>
-  <%= hidden_field_tag 'edit', edit_value %>
+  <%= hidden_field_tag 'routine', 'true' %>
   <div id='days'>
     <%= f.fields_for :days, routine do |day| %>
       <%= render partial: 'workout_fields',
