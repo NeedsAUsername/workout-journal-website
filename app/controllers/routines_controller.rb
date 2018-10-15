@@ -7,5 +7,6 @@ class RoutinesController < ApplicationController
 
   def edit
     @program_plan = current_user.program_plan
-  end 
+    @day = @program_plan.days.build
+  end
 end

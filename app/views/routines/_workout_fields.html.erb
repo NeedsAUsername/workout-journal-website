@@ -1,13 +1,13 @@
 <div class='nested-fields column-6 mb3'>
   <div class="field">
     <%= f.label :name, 'Workout Day' %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
   <div class="field">
     <%= f.fields_for :exercises do |exercise| %>
       <%= render partial: 'exercises_fields', locals: {f: exercise} %>
     <% end %>
-    <div class="">
+    <div>
       <%= link_to_add_association 'add exercise', f, :exercises,
       partial: 'exercises_fields' %>
     </div>

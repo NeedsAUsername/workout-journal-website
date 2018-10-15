@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     resources :entries, only: [:index, :show, :create, :update]
   end
 
-  get '/programs/:id/routines/edit', to: 'routines#edit', as: 'edit_routines'
+  get '/programs/routines/edit', to: 'routines#edit', as: 'edit_routines'
+  get '/programs/routines/new', to: 'routines#new', as: 'new_routines'
   resources :program_plans, :path => 'programs' do
     resources :exercises, only: [:index, :show]
-    resources :routines, only: [:new, :edit]
   end
 
 
