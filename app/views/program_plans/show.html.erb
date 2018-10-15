@@ -32,12 +32,16 @@
 <% end %>
 </ul>
 
-<h3>Routine</h3>
+<h3>Routine
+  <% if @program_plan.user == @user %>
+    <%= link_to 'edit', edit_routines_path %>
+  <% end %>
+</h3>
 
 <ul>
 <% @program_plan.days.each do |day| %>
   <li>
-    <%= day.name %>-
+    <%= day.name %>
     <% day.exercises.each_with_index do |exercise, i| %>
       <% if i == day.exercises.length - 1 %>
         <%= exercise.name %>
