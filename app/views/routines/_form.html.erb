@@ -1,0 +1,16 @@
+
+<%= form_for program_plan do |f| %>
+  <%= hidden_field 'routine', 'routine' %>
+  <h2><%= nested_field_text %></h2>
+  <div id='days'>
+    <%= f.fields_for :days, routine do |day| %>
+      <%= render partial: 'workout_fields', locals: {f: day} %>
+    <% end %>
+    <div>
+      <%= link_to_add_association 'add workout', f, :days,
+      partial: 'workout_fields' %>
+    </div>
+  </div>
+  <br>
+  <%= f.submit save_text, {class: "button"} %>
+<% end %>

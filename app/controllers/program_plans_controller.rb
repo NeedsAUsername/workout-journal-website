@@ -78,7 +78,7 @@ class ProgramPlansController < ApplicationController
   private
 
   def program_plan_params
-    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :dup_exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
+    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :dup_exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy], :days_attributes => [:name])
   end
 
   def featured_params

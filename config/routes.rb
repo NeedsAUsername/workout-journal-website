@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'users#show'
 
   resources :journals, :path => 'journal', only: [:new, :create, :index] do
-    resources :entries, only: [:index, :show, :create]
+    resources :entries, only: [:index, :show, :create, :update]
   end
 
   resources :program_plans, :path => 'programs' do
