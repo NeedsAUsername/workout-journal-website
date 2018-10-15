@@ -49,10 +49,11 @@
 <% end %>
 </ul>
 
-
-<h3>Learn More</h3>
-<ul>
-<% @program_plan.links.each do |link| %>
-  <li><%= link_to link.description, link.name, target: :blank %></li>
-<% end  %>
-</ul>
+<% if !@program_plan.links.empty? %>
+  <h3>Learn More</h3>
+  <ul>
+  <% @program_plan.links.each do |link| %>
+    <li><%= link_to link.description, link.name, target: :blank %></li>
+  <% end  %>
+  </ul>
+<% end %>

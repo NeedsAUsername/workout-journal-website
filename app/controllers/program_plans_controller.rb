@@ -47,7 +47,7 @@ class ProgramPlansController < ApplicationController
     @program_plan.user = current_user
 
     if @program_plan.save
-      redirect_to program_plans_path
+      redirect_to program_plan_path(@program_plan)
     else
       render 'new'
     end
