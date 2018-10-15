@@ -1,10 +1,10 @@
-<h1>Create Your Routine</h1>
 
 <%= render partial: 'form',
   locals: {
     program_plan: @program_plan,
     nested_field_text: 'Create Your Routine',
     routine: @program_plan.days.build,
-    save_text: 'Create Routine'
+    save_text: 'Create Routine',
+    edit_value: 'false'
   }
 %>

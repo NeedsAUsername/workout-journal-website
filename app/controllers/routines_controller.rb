@@ -4,4 +4,8 @@ class RoutinesController < ApplicationController
     @program_plan = current_user.program_plan
     @day = @program_plan.days.build
   end
+
+  def edit
+    @program_plan = current_user.program_plan
+  end 
 end

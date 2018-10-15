@@ -59,7 +59,12 @@ class ProgramPlansController < ApplicationController
 
   def update
     @program_plan = current_user.program_plan
-    @program_plan.update(program_plan_params)
+    if params[:edit] == 'true'
+      @program_plan.days.clear
+      @program_plan.update(routine_params)
+    else
+      @program_plan.update(program_plan_params)
+    end
     if @program_plan.save
       redirect_to program_plan_path(@program_plan)
     else
@@ -78,7 +83,11 @@ class ProgramPlansController < ApplicationController
   private
 
   def program_plan_params
-    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :dup_exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy], :days_attributes => [:name, :exercises_attributes => [:name]])
+    params.require(:program_plan).permit(:name, :description, :exercise_ids => [], :dup_exercise_ids => [], :exercises_attributes => [:id, :name, :description, :_destroy])
+  end
+
+  def routine_params
+    params.require(:program_plan).permit(:days_attributes => [:name, :exercises_attributes => [:name]])
   end
 
   def featured_params

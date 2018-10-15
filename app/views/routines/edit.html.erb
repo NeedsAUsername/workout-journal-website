@@ -1,0 +1,10 @@
+
+<%= render partial: 'form',
+  locals: {
+    program_plan: @program_plan,
+    nested_field_text: 'Edit Your Routine',
+    routine: @program_plan.days,
+    save_text: 'Edit Routine',
+    edit_value: true
+  }
+%>

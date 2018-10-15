@@ -5,7 +5,7 @@
     <% if @program_plan.days.empty? %>
       <br><%= link_to 'Set Routine', new_program_plan_routine_path(@program_plan.id) %>
     <% else %>
-      <br>Choose Workout:<br>
+      <br>Choose Workout:<br> <%= link_to 'edit routine', edit_routines_path(@program_plan.id) %>
       <% @program_plan.days.each do |day| %>
         <div class="workout-link">
           <%= day.name %>

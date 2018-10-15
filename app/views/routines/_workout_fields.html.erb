@@ -4,7 +4,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.fields_for :exercises, Exercise.new do |exercise| %>
+    <%= f.fields_for :exercises do |exercise| %>
       <%= render partial: 'exercises_fields', locals: {f: exercise} %>
     <% end %>
     <div class="">
