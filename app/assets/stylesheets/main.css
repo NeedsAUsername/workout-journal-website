@@ -38,6 +38,27 @@ input[type=submit]{
   text-align: center;
 }
 
+/* Jounal nav bar */
+#entry-nav {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding: 20px;
+}
+
+#dateInfo {
+  align-self: center;
+}
+
+#dateInfo {
+  font-size: 1em;
+  text-align: center;
+}
+
+.entry {
+  border-style: solid;
+}
+
 /* new entry nav bar */
 .top-bar {
   border-bottom-style: solid;
