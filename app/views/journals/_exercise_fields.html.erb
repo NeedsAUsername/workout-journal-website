@@ -2,7 +2,7 @@
   <div class="column-3 mb3">
   <%= f.collection_select(:name, exercises, :name, :name, selected: selected) %>
   <%= f.label :weight %>
-  <%= f.number_field :weight, step: 5, min: 0, max: 2000 %>
+  <%= f.number_field :weight, step: 5, min: 0, max: 2000, required:true %>
   <%= link_to_remove_association "remove exercise", f %>
   </div>
 </div>
