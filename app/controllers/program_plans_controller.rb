@@ -20,7 +20,7 @@ class ProgramPlansController < ApplicationController
 
   def create
     if params[:program_plan][:id]
-      @featured_program =ProgramPlan.find_by(featured_params)
+      @featured_program = ProgramPlan.find_by(featured_params)
       @program_plan = @featured_program.dup
       @program_plan.featured = nil
       @featured_program.exercises.each do |exercise|
