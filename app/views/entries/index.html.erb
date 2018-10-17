@@ -22,7 +22,8 @@
   var month = new Date().getMonth() + 1;
   var year = new Date().getFullYear();
 
-  document.addEventListener('DOMContentLoaded', function(){
+  // Calling function rather than using DOMContentLoaded, because page won't reload ajax except on refresh.
+  (function(){
     let url = '<%= journal_entries_path %>';
     updateDateInfo(0);
     getEntries(url);
@@ -34,13 +35,15 @@
       updateDateInfo(1);
       getEntries(url);
     });
-  })
+  })()
 
   function updateDateInfo(change) {
     month += change;
     if (month > 12) {
+      year += 1;
       month = 1;
     } else if (month < 1) {
+      year -= 1;
       month = 12;
     }
     let dateInfo = document.getElementById('dateInfo');
@@ -61,11 +64,10 @@
       let entriesHTML = '';
       let selectedEntries = [];
       data.entries.forEach(function(entry) {
-        if (entry.date.slice(5, 7) === String(month)) {
+        if (entry.date.slice(5, 7) === String(month) & entry.date.slice(0, 4) === String(year)) {
           selectedEntries.push(entry);
         }
       })
-      debugger
       selectedEntries.forEach(function(entry) {
         let entryHTML = `<h4>${entry.date.slice(0, 10)}</h4>`;
         let exercisesHTML = '';
