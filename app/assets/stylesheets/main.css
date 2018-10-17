@@ -57,6 +57,7 @@ input[type=submit]{
 
 .entry {
   border-bottom-style: solid;
+  margin-left: 20px;
 }
 
 /* new entry nav bar */

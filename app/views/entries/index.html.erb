@@ -68,11 +68,15 @@
           selectedEntries.push(entry);
         }
       })
+      selectedEntries.sort(function(a, b) {
+        let aValue = Number(a.date.slice(8, 10));
+        let bValue = Number(b.date.slice(8, 10));
+        return aValue - bValue;
+      })
       selectedEntries.forEach(function(entry) {
         let entryHTML = `<h4>${entry.date.slice(0, 10)}</h4>`;
         let exercisesHTML = '';
-        let commentsHTML = '';
-        if (!!entry.comments) { commentsHTML = `${entry.comments}`; }
+        let commentsHTML = entry.comments;
         entry.exercises.forEach(function(exercise) {
           exercisesHTML += `<p>${exercise.name} - ${exercise.weight}</p>`;
         })
