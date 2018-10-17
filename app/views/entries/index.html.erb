@@ -46,8 +46,9 @@
       year -= 1;
       month = 12;
     }
+    list = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
     let dateInfo = document.getElementById('dateInfo');
-    dateInfo.textContent = `${month}/${year}`;
+    dateInfo.textContent = `${list[month - 1]} ${year}`;
   }
 
   function getEntries(url) {
