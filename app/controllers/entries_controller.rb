@@ -12,6 +12,8 @@ class EntriesController < ApplicationController
 
   def index
     @journal = current_user.journal
+    render json: @journal, include: ['entries.exercises']
+    # active_model_serializer goes one association deep, so need to include deeper associations
   end
 
   private
