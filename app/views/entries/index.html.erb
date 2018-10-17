@@ -1,6 +1,11 @@
 <h1><%= @journal.name %></h1>
 
-<button id="js-more-entries" class="button">Show More</button>
+
+<button id="js-earlier-entries" class="button"><</button>
+<button id="js-later-entries" class="button">></button>
+
+<div id="dateInfo">
+</div>
 
 <div id="entries">
 </div>
@@ -20,17 +25,29 @@
 
 <script type="text/javascript">
   // If I use let/const, page will try to reload the variables if I rejoin from another section, and ajax will not work.
-  var button = document.getElementById('js-more-entries');
+  var buttonEarlier = document.getElementById('js-earlier-entries');
+  var buttonLater = document.getElementById('js-later-entries');
   var entryDiv = document.getElementById('entries');
   var month = new Date().getMonth() + 1;
   var year = new Date().getFullYear();
 
   document.addEventListener('DOMContentLoaded', function(){
-    button.addEventListener('click',function(e) {
-      let url = '<%= journal_entries_path %>';
+    let url = '<%= journal_entries_path %>';
+    buttonEarlier.addEventListener('click',function(e) {
+      updateDateInfo(-1);
       getEntries(url);
-    })
+    });
+    buttonLater.addEventListener('click', function(e) {
+      updateDateInfo(1);
+      getEntries(url);
+    });
   })
+
+  function updateDateInfo(change) {
+    month += change;
+    let dateInfo = document.getElementById('dateInfo');
+    dateInfo.textContent = `${month}/${year}`;
+  }
 
   function getEntries(url) {
     fetch(url, {
