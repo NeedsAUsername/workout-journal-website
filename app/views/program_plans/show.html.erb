@@ -33,6 +33,10 @@
 </ul>
 
 <h3>Routine</h3>
+<% if @program_plan.days.empty? %>
+<%= link_to 'Create', new_routines_path %>
+<% else %>
+<%= link_to 'Edit', edit_routines_path(@program_plan) %>
 
 <ul>
 <% @program_plan.days.each do |day| %>
@@ -48,11 +52,13 @@
   </li>
 <% end %>
 </ul>
+<% end %>
 
-
-<h3>Learn More</h3>
-<ul>
-<% @program_plan.links.each do |link| %>
-  <li><%= link_to link.description, link.name, target: :blank %></li>
-<% end  %>
-</ul>
+<% if @program_plan.featured %>
+  <h3>Learn More</h3>
+  <ul>
+  <% @program_plan.links.each do |link| %>
+    <li><%= link_to link.description, link.name, target: :blank %></li>
+  <% end  %>
+  </ul>
+<% end %>
