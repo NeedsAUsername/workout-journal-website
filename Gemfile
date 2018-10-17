@@ -7,6 +7,8 @@ end
 
 ruby '2.4.4'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
