@@ -18,7 +18,7 @@ class EntriesController < ApplicationController
       format.json {render json: @journal,
         include: ['entries.exercises']}
         # active_model_serializer only goes one association deep, so need to include deeper associations
-    end 
+    end
   end
 
   private

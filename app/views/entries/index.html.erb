@@ -1,5 +1,11 @@
 <h1><%= @journal.name %></h1>
-<ul>
+
+<button id="js-more-entries" class="button">Show More</button>
+
+<div id="entries">
+</div>
+
+<!-- <ul>
   <% @journal.entries.each do |entry| %>
     <li>
       <%= entry.date.strftime('%m-%d-%Y') %><br>
@@ -9,4 +15,33 @@
       Comments: <%= entry.comments %><br><br>
     </li>
   <% end %>
-</ul>
+</ul> -->
+
+
+<script type="text/javascript">
+  (function() {
+    const button = document.getElementById('js-more-entries');
+    const entryDiv = document.getElementById('entries');
+    button.addEventListener('click',function() {
+      let url = '<%= journal_entries_path %>'
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        }
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(response) {
+        let entriesHTML = '<ul>Entries</ul>';
+        response.entries.forEach(function(entry) {
+          let entryHTML = `<li class="column-6">${entry.date.slice(0, 9)}</li>`;
+          entriesHTML += entryHTML;
+        })
+        entryDiv.innerHTML = entriesHTML;
+      })
+    })
+  })()
+
+</script>
