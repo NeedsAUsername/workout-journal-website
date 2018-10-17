@@ -19,29 +19,49 @@
 
 
 <script type="text/javascript">
-  (function() {
-    const button = document.getElementById('js-more-entries');
-    const entryDiv = document.getElementById('entries');
-    button.addEventListener('click',function() {
-      let url = '<%= journal_entries_path %>'
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
+  // If I use let/const, page will try to reload the variables if I rejoin from another section, and ajax will not work.
+  var button = document.getElementById('js-more-entries');
+  var entryDiv = document.getElementById('entries');
+  var month = new Date().getMonth() + 1;
+  var year = new Date().getFullYear();
+
+  document.addEventListener('DOMContentLoaded', function(){
+    button.addEventListener('click',function(e) {
+      let url = '<%= journal_entries_path %>';
+      getEntries(url);
+    })
+  })
+
+  function getEntries(url) {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      }
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let entriesHTML = '<h2>Entries</h2>';
+      let selectedEntries = [];
+      data.entries.forEach(function(entry) {
+        if (entry.date.slice(5, 7) === String(month)) {
+          selectedEntries.push(entry);
         }
       })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(response) {
-        let entriesHTML = '<ul>Entries</ul>';
-        response.entries.forEach(function(entry) {
-          let entryHTML = `<li class="column-6">${entry.date.slice(0, 9)}</li>`;
-          entriesHTML += entryHTML;
+      debugger
+      selectedEntries.forEach(function(entry) {
+        let entryHTML = `<ul>${entry.date.slice(0, 10)}</ul>`;
+        let exercisesHTML = '';
+        entry.exercises.forEach(function(exercise) {
+          exercisesHTML += `<li>${exercise.name} - ${exercise.weight}</li>`;
         })
-        entryDiv.innerHTML = entriesHTML;
+        let entryElement = `<div class="entry">${entryHTML + exercisesHTML}</div>`;
+        entriesHTML += entryElement;
       })
+      entryDiv.innerHTML = entriesHTML;
     })
-  })()
+  }
 
 </script>
