@@ -9,8 +9,9 @@
   <button id="js-later-entries" class="button">></button>
 </container>
 
-<div id="entries">
-</div>
+<table id="entries">
+
+</table>
 
 
 
@@ -102,13 +103,16 @@
   EntriesHelper.prototype.formatEntries = function() {
     let formatter = this;
     formatter.selectedEntries.forEach(function(entry) {
-      let entryHTML = `<h4>${entry.date.slice(0, 10)}</h4>`;
+      let entryHTML = `<td><strong>${entry.date.slice(0, 10)}</strong></td>`;
       let exercisesHTML = '';
-      let commentsHTML = entry.comments;
+      let commentsHTML = '';
+      if (!!entry.comments) {
+        commentsHTML = `<td>${entry.comments}</td>`;
+      }
       entry.exercises.forEach(function(exercise) {
-        exercisesHTML += `<p>${exercise.name} - ${exercise.weight}</p>`;
+        exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
       })
-      let entryElement = `<div class="entry column-6">${entryHTML + exercisesHTML + commentsHTML}</div>`;
+      let entryElement = `<tr class="entry">${entryHTML + exercisesHTML + commentsHTML}</tr>`;
       formatter.entriesHTML += entryElement;
     })
   }
