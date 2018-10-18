@@ -104,6 +104,9 @@
       formatter.entriesHTML += entryElement;
     })
   }
+  EntriesHelper.prototype.appendEntries = function() {
+    entryDiv.innerHTML = this.entriesHTML;
+  }
 
   function getEntries(url) {
     fetch(url, {
@@ -123,7 +126,7 @@
       } else {
         helper.sortEntries();
         helper.formatEntries();
-        entryDiv.innerHTML = helper.entriesHTML;
+        helper.appendEntries();
       }
     })
   }
@@ -145,7 +148,7 @@
         entryDiv.innerHTML = `<p>No entries found for ${searchInput.value}</p>`
       } else {
         helper.formatEntries();
-        entryDiv.innerHTML = helper.entriesHTML;
+        helper.appendEntries();
       }
     })
   }
