@@ -23,7 +23,7 @@
   var month = new Date().getMonth() + 1;
   var year = new Date().getFullYear();
 
-  // Calling function rather than using DOMContentLoaded, because page won't reload ajax except on refresh.
+  // Calling function rather than using DOMContentLoaded, because page won't reload ajax except on refresh. 
   (function(){
     let url = '<%= journal_entries_path %>';
     updateDateInfo(0);
@@ -51,20 +51,6 @@
     let dateInfo = document.getElementById('dateInfo');
     dateInfo.textContent = `${list[month - 1]} ${year}`;
   }
-
-  (function(){
-    let url = '<%= journal_entries_path %>';
-    updateDateInfo(0);
-    getEntries(url);
-    buttonEarlier.addEventListener('click',function(e) {
-      updateDateInfo(-1);
-      getEntries(url);
-    });
-    buttonLater.addEventListener('click', function(e) {
-      updateDateInfo(1);
-      getEntries(url);
-    });
-  })()
 
   function updateDateInfo(change) {
     month += change;
