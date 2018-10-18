@@ -32,11 +32,19 @@
 <% end %>
 </ul>
 
+<<<<<<< HEAD
 <h3>Routine
   <% if @program_plan.user == @user %>
     <%= link_to 'edit', edit_routines_path %>
   <% end %>
 </h3>
+=======
+<h3>Routine</h3>
+<% if @program_plan.days.empty? %>
+<%= link_to 'Create', new_routines_path %>
+<% else %>
+<%= link_to 'Edit', edit_routines_path(@program_plan) %>
+>>>>>>> javascript
 
 <ul>
 <% @program_plan.days.each do |day| %>
@@ -52,8 +60,13 @@
   </li>
 <% end %>
 </ul>
+<% end %>
 
+<<<<<<< HEAD
 <% if !@program_plan.links.empty? %>
+=======
+<% if @program_plan.featured %>
+>>>>>>> javascript
   <h3>Learn More</h3>
   <ul>
   <% @program_plan.links.each do |link| %>

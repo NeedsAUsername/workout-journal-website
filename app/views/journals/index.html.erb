@@ -3,7 +3,11 @@
   <h3>
     Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
     <% if @program_plan.days.empty? %>
+<<<<<<< HEAD
       <br><%= link_to 'Set Routine', new_routines_path %>
+=======
+      <br><%= link_to 'Create Routine', new_routines_path %>
+>>>>>>> javascript
     <% else %>
       <br>Choose Workout:<br> <%= link_to 'edit routine', edit_routines_path %>
       <% @program_plan.days.each do |day| %>

@@ -1,12 +1,111 @@
-<h1><%= @journal.name %></h1>
-<ul>
-  <% @journal.entries.each do |entry| %>
-    <li>
-      <%= entry.date.strftime('%m-%d-%Y') %><br>
-      Exercises: <% entry.exercises.each do |exercise| %>
-        <%= exercise.name %>- <%= exercise.weight %>
-      <% end %><br>
-      Comments: <%= entry.comments %><br><br>
-    </li>
-  <% end %>
-</ul>
+
+
+<container id="entry-nav">
+  <button id="js-earlier-entries" class="button"><</button>
+  <h1>
+    <%= @journal.name %>
+    <p id="dateInfo"></p>
+  </h1>
+  <button id="js-later-entries" class="button">></button>
+</container>
+
+<table id="entries">
+
+</table>
+
+
+
+<script type="text/javascript">
+  // If I use let/const, page will try to reload the variables if I rejoin from another section, and ajax will not work.
+  var buttonEarlier = document.getElementById('js-earlier-entries');
+  var buttonLater = document.getElementById('js-later-entries');
+  var entryDiv = document.getElementById('entries');
+  var month = new Date().getMonth() + 1;
+  var year = new Date().getFullYear();
+
+  // Calling function rather than using DOMContentLoaded, because page won't reload ajax except on refresh.
+  (function LoadEntriesAndListeners(){
+    let url = '<%= journal_entries_path %>';
+    updateDateInfo(0);
+    getEntries(url);
+    buttonEarlier.addEventListener('click',function(e) {
+      updateDateInfo(-1);
+      getEntries(url);
+    });
+    buttonLater.addEventListener('click', function(e) {
+      updateDateInfo(1);
+      getEntries(url);
+    });
+  })()
+
+  function updateDateInfo(change) {
+    month += change;
+    if (month > 12) {
+      year += 1;
+      month = 1;
+    } else if (month < 1) {
+      year -= 1;
+      month = 12;
+    }
+    list = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    let dateInfo = document.getElementById('dateInfo');
+    dateInfo.textContent = `${list[month - 1]} ${year}`;
+  }
+
+  function EntriesHelper(entries) {
+      this.entries = entries;
+      this.entriesHTML = '';
+      this.selectedEntries = [];
+  }
+  EntriesHelper.prototype.selectEntries = function() {
+    let formatter = this;
+    formatter.entries.forEach(function(entry) {
+      if (entry.date.slice(5, 7) === String(month) & entry.date.slice(0, 4) === String(year)) {
+        formatter.selectedEntries.push(entry);
+      }
+    })
+  }
+  EntriesHelper.prototype.sortEntries = function() {
+    this.selectedEntries.sort(function(a, b) {
+      let aValue = Number(a.date.slice(8, 10));
+      let bValue = Number(b.date.slice(8, 10));
+      return aValue - bValue;
+    })
+  }
+  EntriesHelper.prototype.formatEntries = function() {
+    let formatter = this;
+    formatter.selectedEntries.forEach(function(entry) {
+      let entryHTML = `<td><strong>${entry.date.slice(0, 10)}</strong></td>`;
+      let exercisesHTML = '';
+      let commentsHTML = '';
+      if (!!entry.comments) {
+        commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
+      }
+      entry.exercises.forEach(function(exercise) {
+        exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
+      })
+      let entryElement = `<td><tr>${entryHTML + exercisesHTML + commentsHTML}</tr></td>`;
+      formatter.entriesHTML += entryElement;
+    })
+  }
+
+  function getEntries(url) {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      }
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let helper = new EntriesHelper(data.entries);
+      helper.selectEntries();
+      helper.sortEntries();
+      helper.formatEntries();
+      entryDiv.innerHTML = helper.entriesHTML;
+    })
+  }
+
+</script>
