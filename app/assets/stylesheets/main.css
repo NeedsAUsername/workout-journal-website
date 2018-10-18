@@ -46,11 +46,12 @@ input[type=submit]{
   padding: 20px;
 }
 
-#dateInfo {
-  align-self: center;
+#entry-nav button{
+  margin: 20px;
 }
 
 #dateInfo {
+  align-self: center;
   font-size: 1em;
   text-align: center;
 }
