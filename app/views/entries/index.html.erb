@@ -60,7 +60,7 @@
   EntriesHelper.prototype.selectEntries = function() {
     let formatter = this;
     formatter.entries.forEach(function(entry) {
-      if (entry.date.slice(5, 7) === String(month) & entry.date.slice(0, 4) === String(year)) {
+      if (Number(entry.date.slice(5, 7)) === month & Number(entry.date.slice(0, 4)) === year) {
         formatter.selectedEntries.push(entry);
       }
     })
@@ -78,9 +78,7 @@
       let entryHTML = `<td><strong>${entry.date.slice(0, 10)}</strong></td>`;
       let exercisesHTML = '';
       let commentsHTML = '';
-      if (!!entry.comments) {
-        commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
-      }
+      commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       entry.exercises.forEach(function(exercise) {
         exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
       })

@@ -21,6 +21,11 @@ class EntriesController < ApplicationController
     end
   end
 
+  def show
+    @entry = current_user.journal.entries.find(params[:id])
+    render json: @journal, include: ['entries.exercises']
+  end
+
   private
 
   def entry_params
