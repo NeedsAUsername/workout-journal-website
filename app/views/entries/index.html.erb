@@ -44,6 +44,7 @@
     });
     searchButton.addEventListener('click', function(e) {
       e.preventDefault();
+      searchEntry(url);
     })
   })()
 
@@ -70,6 +71,14 @@
     let formatter = this;
     formatter.entries.forEach(function(entry) {
       if (Number(entry.date.slice(5, 7)) === month & Number(entry.date.slice(0, 4)) === year) {
+        formatter.selectedEntries.push(entry);
+      }
+    })
+  }
+  EntriesHelper.prototype.searchEntries = function() {
+    let formatter = this;
+    formatter.entries.forEach(function(entry) {
+      if (entry.date.slice(0, 10) === searchInput.value) {
         formatter.selectedEntries.push(entry);
       }
     })
@@ -109,9 +118,35 @@
     .then(function(data) {
       let helper = new EntriesHelper(data.entries);
       helper.selectEntries();
-      helper.sortEntries();
-      helper.formatEntries();
-      entryDiv.innerHTML = helper.entriesHTML;
+      if (helper.selectedEntries == ""){
+        entryDiv.innerHTML = `No entries found`
+      } else {
+        helper.sortEntries();
+        helper.formatEntries();
+        entryDiv.innerHTML = helper.entriesHTML;
+      }
+    })
+  }
+
+  function searchEntry(url) {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      }
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let helper = new EntriesHelper(data.entries);
+      helper.searchEntries();
+      if (helper.selectedEntries == "") {
+        entryDiv.innerHTML = `<p>No entries found for ${searchInput.value}</p>`
+      } else {
+        helper.formatEntries();
+        entryDiv.innerHTML = helper.entriesHTML;
+      }
     })
   }
 
