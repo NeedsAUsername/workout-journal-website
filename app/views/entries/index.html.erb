@@ -8,8 +8,8 @@
   </h2>
   <button id="js-later-entries" class="button">></button>
   <form class="search-bar">
-    <input type="date" class="search-params">
-    <input type="submit" class="search-submit">
+    <input type="date" id="js-search-params">
+    <input type="submit" id="js-search">
   </form>
 </container>
 
@@ -23,6 +23,8 @@
   // If I use let/const, page will try to reload the variables if I rejoin from another section, and ajax will not work.
   var buttonEarlier = document.getElementById('js-earlier-entries');
   var buttonLater = document.getElementById('js-later-entries');
+  var searchInput = document.getElementById('js-search-params')
+  var searchButton = document.getElementById('js-search')
   var entryDiv = document.getElementById('entries');
   var month = new Date().getMonth() + 1;
   var year = new Date().getFullYear();
@@ -40,6 +42,9 @@
       updateDateInfo(1);
       getEntries(url);
     });
+    searchButton.addEventListener('click', function(e) {
+      e.preventDefault();
+    })
   })()
 
   function updateDateInfo(change) {
