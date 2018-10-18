@@ -107,12 +107,12 @@
       let exercisesHTML = '';
       let commentsHTML = '';
       if (!!entry.comments) {
-        commentsHTML = `<td>${entry.comments}</td>`;
+        commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       }
       entry.exercises.forEach(function(exercise) {
         exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
       })
-      let entryElement = `<tr class="entry">${entryHTML + exercisesHTML + commentsHTML}</tr>`;
+      let entryElement = `<td class="entry"><tr>${entryHTML + exercisesHTML + commentsHTML}</tr></td>`;
       formatter.entriesHTML += entryElement;
     })
   }
