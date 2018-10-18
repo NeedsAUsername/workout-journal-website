@@ -2,11 +2,15 @@
 
 <container id="entry-nav">
   <button id="js-earlier-entries" class="button"><</button>
-  <h1>
+  <h2>
     <%= @journal.name %>
     <p id="dateInfo"></p>
-  </h1>
+  </h2>
   <button id="js-later-entries" class="button">></button>
+  <form class="search-bar">
+    <input type="date" class="search-params">
+    <input type="submit" class="search-submit">
+  </form>
 </container>
 
 <table id="entries">

@@ -49,11 +49,22 @@ input[type=submit]{
 #entry-nav button{
   margin: 20px;
 }
+#entry-nav h2 {
+  text-align: center;
+}
+#entry-nav p {
+  font-size: 85%;
+}
 
 #dateInfo {
   align-self: center;
   font-size: 1em;
   text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  margin: auto;
 }
 
 /* new entry nav bar */
