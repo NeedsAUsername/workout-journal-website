@@ -1,5 +1,16 @@
 <h1>Your Stats</h1>
 
+<p>Height: <%= @user.height %></p>
+<p>Weight: <%= @user.weight %></p>
+
+<%= form_for @user, url: stats_path do |f| %>
+  <%= f.label :height %>
+  <%= f.text_field :height %>
+  <%= f.label :weight %>
+  <%= f.text_field :weight %>
+  <%= f.submit %>
+<% end %>
+
 <form id="height=form" action="#" class="column-6">
   <label for="js-height-params">Height:</label>
   <input name="" value="" id="js-height-params">

@@ -11,7 +11,6 @@ progress chart
 goals
 
 
-
 HEROKU NOTES
 $ heroku run rake db:task_name
 examples:

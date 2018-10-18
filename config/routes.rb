@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :exercises, only: [:index, :show]
   end
 
+  get '/stats', to: 'users#stats'
+  patch '/stats', to: 'users#update'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -22,5 +24,5 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback', to: 'sessions#create'
 
-  get '/stats', to: 'users#stats'
+
 end

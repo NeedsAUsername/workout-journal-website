@@ -27,13 +27,17 @@ class UsersController < ApplicationController
   end
 
   def stats
+  end
 
+  def update
+    @user.update(user_params)
+    redirect_to stats_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :height, :weight)
   end
 
 end
