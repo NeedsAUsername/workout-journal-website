@@ -112,7 +112,7 @@
       entry.exercises.forEach(function(exercise) {
         exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
       })
-      let entryElement = `<td class="entry"><tr>${entryHTML + exercisesHTML + commentsHTML}</tr></td>`;
+      let entryElement = `<td><tr>${entryHTML + exercisesHTML + commentsHTML}</tr></td>`;
       formatter.entriesHTML += entryElement;
     })
   }

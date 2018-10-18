@@ -55,11 +55,6 @@ input[type=submit]{
   text-align: center;
 }
 
-.entry {
-  border-bottom-style: solid;
-  margin-left: 20px;
-}
-
 /* new entry nav bar */
 .top-bar {
   border-bottom-style: solid;
