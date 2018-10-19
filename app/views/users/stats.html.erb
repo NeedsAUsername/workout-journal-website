@@ -5,9 +5,9 @@
   <p>Weight: <%= @user.weight %></p>
 </div>
 
-<button id="js-show-stats-form">edit</button>
+<button id="js-show-stats-form" style="display: block">edit</button>
 
-<div id="stats-form" style="display:none">
+<div id="stats-form" class="column-6" style="display: none">
   <%= form_for @user, url: stats_path do |f| %>
     <%= f.label :height %>
     <%= f.number_field :height %>
@@ -31,7 +31,7 @@
       editUser(this);
     })
     document.getElementById('js-show-stats-form').addEventListener('click', function(e) {
-      document.getElementById('stats-form').style.display = 'block';
+      document.getElementById('stats-form').style.display = '';
     })
   };
 
