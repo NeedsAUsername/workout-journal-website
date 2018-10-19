@@ -5,26 +5,33 @@
   <p>Weight: <%= @user.weight %></p>
 </div>
 
+<button id="js-show-stats-form">edit</button>
 
-<%= form_for @user, url: stats_path do |f| %>
-  <%= f.label :height %>
-  <%= f.number_field :height %>
-  <br>
-  <%= f.label :weight %>
-  <%= f.number_field :weight %>
-  <%= f.submit %>
-<% end %>
+<div id="stats-form" style="display:none">
+  <%= form_for @user, url: stats_path do |f| %>
+    <%= f.label :height %>
+    <%= f.number_field :height %>
+    <br>
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
 
 
 <script type="text/javascript">
   (function() {
     addListeners();
   })()
-  
+
   function addListeners() {
     document.querySelector('.edit_user').addEventListener('submit', function(e) {
       e.preventDefault();
       editUser(this);
+    })
+    document.getElementById('js-show-stats-form').addEventListener('click', function(e) {
+      document.getElementById('stats-form').style.display = 'block';
     })
   };
 
@@ -34,7 +41,10 @@
       url: form.action,
       data: $(form).serialize(),
     }).done(function(data) {
+      console.log(data);
       $('#stats-data').html(data);
+      $('input[type="submit"]').prop('disabled', false);
+      $('#stats-form').hide();
     }).fail(function(error) {
       alert(error);
     })
