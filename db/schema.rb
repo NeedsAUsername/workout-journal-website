@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_10_18_230003) do
     t.integer "sets"
     t.integer "reps"
     t.boolean "standard"
-    t.integer "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

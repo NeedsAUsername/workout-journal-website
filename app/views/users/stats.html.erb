@@ -5,7 +5,7 @@
   <p>Weight: <%= @user.weight %> lbs</p>
 </div>
 
-<button id="js-show-stats-form" style="display: block">edit</button>
+<button id="js-show-stats-form" style="display: block; color: blue">edit</button>
 
 <div id="stats-form" class="column-6" style="display: none">
   <%= form_for @user, url: stats_path do |f| %>
