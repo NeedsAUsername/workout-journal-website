@@ -28,17 +28,6 @@
   };
 
   function editUser(url, form) {
-    fetch(url, {
-      method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: form
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-    })
+    $.ajax()
   }
 </script>
