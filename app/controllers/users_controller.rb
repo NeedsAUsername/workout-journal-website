@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create, :show]
+  skip_before_action :verify_authenticity_token
 
   def show
     if !logged_in? # necessary for require_login to work properly
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to stats_path
+    render 'stats'
   end
 
   private

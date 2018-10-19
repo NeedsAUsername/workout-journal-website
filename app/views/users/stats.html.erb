@@ -5,21 +5,40 @@
 
 <%= form_for @user, url: stats_path do |f| %>
   <%= f.label :height %>
-  <%= f.text_field :height %>
+  <%= f.number_field :height %>
+  <br>
   <%= f.label :weight %>
-  <%= f.text_field :weight %>
+  <%= f.number_field :weight %>
   <%= f.submit %>
 <% end %>
 
-<form id="height=form" action="#" class="column-6">
-  <label for="js-height-params">Height:</label>
-  <input name="" value="" id="js-height-params">
-  <input type="submit" id="js-height-submit">
-</form>
 
+<script type="text/javascript">
+  (function() {
+    addListeners();
+  })()
 
-<form id="weight-form" action="#" class="column-6">
-  <label for="js-weight-params">Weight:</label>
-  <input name="" value="" id="js-weight-params">
-  <input type="submit" id="js-weight-submit">
-</form>
+  function addListeners() {
+    document.querySelector('.edit_user').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let url = this.action;
+      let form = serialize(this); //serialize function from https://code.google.com/archive/p/form-serialize/
+      editUser(url, form);
+    })
+  };
+
+  function editUser(url, form) {
+    fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: form
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+    })
+  }
+</script>
