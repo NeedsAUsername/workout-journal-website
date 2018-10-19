@@ -17,4 +17,3 @@
 //= require jquery
 //= require cocoon
 //= require main
-//= require serialize

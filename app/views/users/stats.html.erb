@@ -21,13 +21,18 @@
   function addListeners() {
     document.querySelector('.edit_user').addEventListener('submit', function(e) {
       e.preventDefault();
-      let url = this.action;
-      let form = serialize(this); //serialize function from https://code.google.com/archive/p/form-serialize/
-      editUser(url, form);
+      editUser(this);
     })
   };
 
-  function editUser(url, form) {
-    $.ajax()
+  function editUser(form) {
+    $.ajax({
+      type: 'PATCH',
+      accepts: 'application/json',
+      url: form.action,
+      data: $(form).serialize(),
+    }).done(function(data) {
+      debugger
+    })
   }
 </script>
