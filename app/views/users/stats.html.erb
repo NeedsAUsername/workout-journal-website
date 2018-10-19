@@ -1,7 +1,10 @@
 <h1>Your Stats</h1>
 
-<p>Height: <%= @user.height %></p>
-<p>Weight: <%= @user.weight %></p>
+<div id="stats-data">
+  <p>Height: <%= @user.height %></p>
+  <p>Weight: <%= @user.weight %></p>
+</div>
+
 
 <%= form_for @user, url: stats_path do |f| %>
   <%= f.label :height %>
@@ -17,7 +20,7 @@
   (function() {
     addListeners();
   })()
-
+  
   function addListeners() {
     document.querySelector('.edit_user').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -28,11 +31,12 @@
   function editUser(form) {
     $.ajax({
       type: 'PATCH',
-      accepts: 'application/json',
       url: form.action,
       data: $(form).serialize(),
     }).done(function(data) {
-      debugger
+      $('#stats-data').html(data);
+    }).fail(function(error) {
+      alert(error);
     })
   }
 </script>

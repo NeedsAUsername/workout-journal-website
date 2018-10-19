@@ -32,10 +32,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    respond_to do |format|
-      format.html {redirect_to stats_path}
-      format.json {render json: @user}
-    end
+    render :stats_data, layout: false 
   end
 
   private
