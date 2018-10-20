@@ -157,7 +157,9 @@
       }
     })
     .catch(function(error) {
-      alert(error);
+      error.text().then(function(errorMessage) {
+        alert(errorMessage);
+      })
     })
   }
 
