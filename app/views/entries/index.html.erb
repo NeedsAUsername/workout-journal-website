@@ -94,9 +94,8 @@
     let formatter = this;
     formatter.selectedEntries.forEach(function(entry) {
       let entryHTML = `<td><strong>${entry.date.slice(0, 10)}</strong></td>`;
+      let commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       let exercisesHTML = '';
-      let commentsHTML = '';
-      commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       entry.exercises.forEach(function(exercise) {
         exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
       })
