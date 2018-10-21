@@ -7,7 +7,7 @@ class JournalSerializer < ActiveModel::Serializer
     has_many :exercises
 
     class ExerciseSerializer < ActiveModel::Serializer
-      attributes :name, :weight
+      attributes :name, :weight, :sets, :reps
     end
   end
 end

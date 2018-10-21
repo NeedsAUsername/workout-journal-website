@@ -97,7 +97,7 @@
       let commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       let exercisesHTML = '';
       entry.exercises.forEach(function(exercise) {
-        exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight}</td></tr>`;
+        exercisesHTML += `<tr><td>${exercise.name} - ${exercise.weight} - ${exercise.sets} x ${exercise.reps}</td></tr>`;
       })
       let entryElement = `<td><tr>${entryHTML + exercisesHTML + commentsHTML}</tr></td>`;
       formatter.entriesHTML += entryElement;
