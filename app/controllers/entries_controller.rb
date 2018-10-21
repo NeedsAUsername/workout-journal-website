@@ -29,6 +29,6 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:date, :comments, :exercises_attributes => [:name, :weight])
+    params.require(:entry).permit(:date, :comments, :exercises_attributes => [:name, :weight, :sets, :reps])
   end
 end
