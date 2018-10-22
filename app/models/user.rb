@@ -20,6 +20,6 @@ class User < ApplicationRecord
   private
 
   def hidden_attributes
-    ['id', 'updated_at', 'created_at', 'uid', 'image']
+    ['id', 'updated_at', 'created_at', 'uid', 'image', 'height', 'weight']
   end
 end

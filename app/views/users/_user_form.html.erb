@@ -1,4 +1,12 @@
 <% attributes.each do |attribute| %>
-    <%= f.label attribute %>
-    <%= f.text_field attribute %>
+    <% if attribute == 'email' %>
+      <%= f.label attribute %>
+      <%= f.email_field attribute %>
+    <% elsif attribute == 'password' %>
+      <%= f.label attribute %>
+      <%= f.password_field attribute %>
+    <% else %>
+      <%= f.label attribute %>
+      <%= f.text_field attribute %>
+    <% end %>
 <% end %>
