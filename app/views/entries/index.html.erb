@@ -30,6 +30,7 @@
   var year = new Date().getFullYear();
 
   // Calling function rather than using DOMContentLoaded, because page won't reload ajax except on refresh.
+  // Alternatively, we can use $(document).on "turbolinks:load"
   (function LoadEntriesAndListeners(){
     let url = '<%= journal_entries_path %>';
     updateDateInfo(0);
