@@ -1,31 +1,6 @@
 
 html {margin:0;padding:0;height:100%;}
 
-#barbell_logo {
-  display: none;
-}
-
-#edit-button {
-  background-color: green;
-  width: auto;
-  min-width: 150px;
-  text-align: center;
-}
-#stop-button {
-  background-color: red;
-  width: auto;
-  min-width: 150px;
-}
-
-.flash {
-  position: relative;
-  top: 10px;
-}
-
-input[type=submit]{
-  cursor: pointer;
-}
-
 .footer {
   position: relative;
   clear: both;
@@ -150,7 +125,36 @@ input[type=submit]{
 .button-nav:hover::before, .button-nav:hover::after {
   opacity: 1;
 }
-/*  */
+
+/* Miscellaneous */
+
+#barbell_logo {
+  display: none;
+}
+
+#edit-button {
+  background-color: green;
+  width: auto;
+  min-width: 150px;
+  text-align: center;
+}
+#stop-button {
+  background-color: red;
+  width: auto;
+  min-width: 150px;
+}
+
+.flash {
+  position: relative;
+  top: 10px;
+}
+
+input[type=submit]{
+  cursor: pointer;
+}
+
+
+/* End of Custom CSS */
 
 
 
@@ -161,15 +165,6 @@ input[type=submit]{
 
 
 /* Styles for http://basscss.com/themes page */
-
-@media screen and (min-width: 64em) {
-  .lg-px4 { padding-left: 4rem; padding-right: 4rem }
-}
-
-/* Grid extension */
-@media screen and (min-width: 96em) {
-  .xl-col-3 { width: 25% }
-}
 
 
 
