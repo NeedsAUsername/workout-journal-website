@@ -13,7 +13,41 @@ html {margin:0;padding:0;height:100%;}
   text-align: center;
 }
 
-/* Jounal nav bar */
+/* Sidebar Nav */
+
+.column-nav {
+  box-sizing: border-box;
+  width:16.666666666666664%;
+  height: 100%;
+}
+
+.nav {
+  position: fixed;
+  height: 100%;
+}
+/* SideBar Nav Buttons */
+
+.button-nav::before {
+  content: url(gym.png);
+  opacity: 0;
+  float: left;
+  position: relative;
+  right: 10px;
+  transition: .5s;
+}
+.button-nav::after {
+  content: url(gym.png);
+  opacity: 0;
+  float: right;
+  position: relative;
+  left: 10px;
+  transition: .5s;
+}
+.button-nav:hover::before, .button-nav:hover::after {
+  opacity: 1;
+}
+
+/* Journal nav bar */
 #entry-nav {
   display: flex;
   margin: auto;
@@ -57,20 +91,7 @@ html {margin:0;padding:0;height:100%;}
   margin-right: 10px;
 }
 
-/* Sidebar Nav */
-
-.column-nav {
-  box-sizing: border-box;
-  width:16.666666666666664%;
-  height: 100%;
-}
-
-.nav {
-  position: fixed;
-  height: 100%;
-}
-
-/* Modal */
+/* SignUp/LogIn Modal */
 
 .modal-bg {
   width: 100%;
@@ -101,29 +122,6 @@ html {margin:0;padding:0;height:100%;}
   font-size: 42px;
   transform: rotate(45deg);
   cursor: pointer;
-}
-
-
-/* Nav Buttons */
-
-.button-nav::before {
-  content: url(gym.png);
-  opacity: 0;
-  float: left;
-  position: relative;
-  right: 10px;
-  transition: .5s;
-}
-.button-nav::after {
-  content: url(gym.png);
-  opacity: 0;
-  float: right;
-  position: relative;
-  left: 10px;
-  transition: .5s;
-}
-.button-nav:hover::before, .button-nav:hover::after {
-  opacity: 1;
 }
 
 /* Miscellaneous */
