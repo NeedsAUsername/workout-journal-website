@@ -25,6 +25,21 @@ html {margin:0;padding:0;height:100%;}
   position: fixed;
   height: 100%;
 }
+@media only screen and (max-width: 1200px) {
+  .column-nav {
+    display: block;
+    width: 100%;
+    min-height: 5%;
+    height: auto;
+    background-color: gray;
+    top: 0;
+  }
+  .nav {
+    position: static;
+    display: none;
+  }
+}
+
 /* SideBar Nav Buttons */
 
 .button-nav::before {
@@ -122,6 +137,12 @@ html {margin:0;padding:0;height:100%;}
   font-size: 42px;
   transform: rotate(45deg);
   cursor: pointer;
+}
+/* Media Queries */
+@media only screen and (max-width: 1000px) {
+    [class*="column-"] {
+        width: 100%;
+    }
 }
 
 /* Miscellaneous */

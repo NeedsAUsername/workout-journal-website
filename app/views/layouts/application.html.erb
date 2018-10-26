@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <header class="left column-nav overflow-auto">
+    <header class="left column-nav overflow-auto" onclick="toggleElement(this.children[0],'block')">
       <div class="nav bg-darken-2 px3 py1">
         <h1 class="h3 center"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
         <div>
