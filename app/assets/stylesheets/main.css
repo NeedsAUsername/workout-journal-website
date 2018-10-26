@@ -177,10 +177,14 @@ html {margin:0;padding:0;height:100%;}
     width: 50%;
   }
 }
-
+@media only screen and (max-width: 900px) {
+  .column-6 {
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 600px) {
-  [class^="column"]{
-      width: 100%;
+  .column-1, .column-2, .column-3, .column-4, .column-5, .column-6, .column-7, .column-8, .column-9, .column-10, .column-11, .column-12 {
+    width: 100%;
   }
 }
 
