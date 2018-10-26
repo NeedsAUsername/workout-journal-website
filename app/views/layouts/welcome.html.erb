@@ -12,7 +12,8 @@
   </head>
 
   <body class="black" style="transition: background 0.2s ease-out 0s;">
-    <div class="p3 center column-4", style="margin-left:33%;">
+    <%# class="center column-4", style="margin-left:33%;" %>
+    <div class="welcome-container">
       <% if flash[:message].present? %>
       <div class="flash">
         <%= flash[:message] %>
