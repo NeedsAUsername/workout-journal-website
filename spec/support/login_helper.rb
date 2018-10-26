@@ -21,13 +21,13 @@ module LoginHelper
 
   def create_a_program
     visit '/programs'
-    click_link 'Want to start a custom program?'
+    click_link 'Create a Custom Program'
 
     fill_in 'Name', with: 'test program'
     fill_in 'Description', with: 'this is a test description'
     check 'Bench Press'
     check 'Deadlift'
-    
+
     click_button 'Create Program'
   end
 end

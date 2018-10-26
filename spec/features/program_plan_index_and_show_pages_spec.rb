@@ -27,7 +27,7 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
     expect(page).to have_text('Not featured, but should show up')
   end
 
-  scenario 'has show pages that link to exercises show pages' do
+  scenario 'has show pages that display its exercises and routine' do
     Exercise.create_or_update_standard_exercises
     ProgramPlan.create_or_update_featured_programs
     user_login(create_standard_user)
@@ -36,13 +36,9 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
     click_link 'Starting Strength'
 
     expect(current_path).to eq('/programs/1')
-    expect(page).to have_text('Exercises in this program:')
-
-    click_link 'Bench Press'
-
-    expect(current_path).to eq('/programs/1/exercises/1')
-    expect(page).to have_text('Works the chest, arms, and shoulder muscles')
-    expect(page).to have_link('Detailed guide on how to perform a proper bench press')
+    expect(page).to have_text('Exercises in this program')
+    expect(page).to have_text('Bench Press')
+    expect(page).to have_text('Workout A Squat, Bench Press, Deadlift')
   end
 
   scenario 'user creates a custom program' do
@@ -50,13 +46,9 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
     user_login(create_standard_user)
     create_a_program
 
-    expect(current_path).to eq('/programs')
-    expect(page).to have_text('Your Current Program')
+    expect(current_path).to eq('/programs/1')
     expect(page).to have_text('test program')
     expect(page).to have_text('this is a test description')
-
-    click_link 'test'
-
     expect(page).to have_text('Bench Press')
     expect(page).to have_text('Deadlift')
     expect(page).not_to have_text('Squat')
@@ -66,32 +58,24 @@ RSpec.feature 'Program Plan Index And Show Pages', :type => :feature do
     Exercise.create_or_update_standard_exercises
     user_login(create_standard_user)
     create_a_program
-    click_link 'test'
-    click_link 'Edit Your Program'
+    click_link 'Edit Program'
 
     expect(current_path).to include('/edit')
-    expect(page).to have_checked_field('Bench Press')
-    expect(page).to have_checked_field('Deadlift')
-
-    fill_in 'Name', with: 'Changed Name'
-    fill_in 'Description', with: 'Changed Description'
-    uncheck 'Deadlift'
-    check 'Row'
+    expect(page).to have_selector("input[value='Bench Press']")
+    expect(page).to have_selector("input[value='Deadlift']")
+    fill_in 'program_plan_exercises_attributes_0_name', with: 'Changed Name'
     click_button 'Save Changes'
 
     expect(page).to have_text('Changed Name')
-    expect(page).to have_text('Changed Description')
-    expect(page).to have_link('Bench Press')
-    expect(page).to have_link('Row')
-    expect(page).not_to have_link('Deadlift')
+    expect(page).to have_text('Deadlift')
+    expect(page).not_to have_link('Bench Press')
   end
 
   scenario 'user deletes their current program' do
     Exercise.create_or_update_standard_exercises
     user_login(create_standard_user)
     create_a_program
-    click_link 'test'
-    click_button 'stop your current program'
+    click_button 'Stop Program'
 
     expect(current_path).to eq('/programs')
     expect(page).not_to have_text('Your Current Program')
