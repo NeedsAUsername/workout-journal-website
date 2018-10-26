@@ -152,11 +152,36 @@ html {margin:0;padding:0;height:100%;}
   transform: rotate(45deg);
   cursor: pointer;
 }
-/* Media Queries */
-@media only screen and (max-width: 1000px) {
-    [class*="column-"] {
-        width: 100%;
-    }
+/* Columns */
+[class^="column-"] {
+  float: left;
+}
+
+.column-1 { width: 8.333333333333332% }
+.column-2 { width: 16.666666666666664% }
+.column-3 { width: 25% }
+.column-4 { width: 33.33333333333333% }
+.column-5 { width: 41.66666666666667% }
+.column-6 { width: 50% }
+.column-7 { width: 58.333333333333336% }
+.column-8 { width: 66.66666666666666% }
+.column-9 { width: 75% }
+.column-10 { width: 83.33333333333334% }
+.column-11 { width: 91.66666666666666% }
+.column-12 { width: 100% }
+@media only screen and (max-width: 1200px) {
+  .column-9 {
+    width: 100%;
+  }
+  .column-3 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  [class^="column"]{
+      width: 100%;
+  }
 }
 
 /* Miscellaneous */
@@ -369,27 +394,9 @@ td:last-child {
   padding-left: 16px;
   padding-right: 16px;
 }
-@media (min-width: 40em) {
-  .column-1, .column-2, .column-3, .column-4, .column-5, .column-6, .column-7, .column-8, .column-9, .column-10, .column-11, .column-12 {
-    float: left;
-  }
 
-}
-@media (min-width: 40em) {
-  .column-1 { width: 8.333333333333332% }
-  .column-2 { width: 16.666666666666664% }
-  .column-3 { width: 25% }
-  .column-4 { width: 33.33333333333333% }
-  .column-5 { width: 41.66666666666667% }
-  .column-6 { width: 50% }
-  .column-7 { width: 58.333333333333336% }
-  .column-8 { width: 66.66666666666666% }
-  .column-9 { width: 75% }
-  .column-10 { width: 83.33333333333334% }
-  .column-11 { width: 91.66666666666666% }
-  .column-12 { width: 100% }
 
-}
+
 
 /*
  * Skull
