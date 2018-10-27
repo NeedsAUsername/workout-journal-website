@@ -12,8 +12,6 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
     font-size: .7em;
   }
 }
-
-
 .footer {
   position: relative;
   clear: both;
@@ -25,18 +23,17 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   background-color: #efefef;
   text-align: center;
 }
-
 /* Welcome Page */
-
 .welcome-container {
   margin: auto;
   text-align: center;
   max-width: 60%;
 }
-@media only screen and (max-width: 600px) {
-  .welcome-container {
-    max-width: 100%;
-  }
+@media only screen and (max-width: 1200px) {
+  .welcome-container {max-width: 80%;}
+  .welcome-container img {width: 20%;}
+  .welcome-container a img {width: 75%;}
+  #credits {font-size: .2em;}
 }
 
 /* Sidebar Nav */
