@@ -176,20 +176,8 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
 .column-10 { width: 83.33333333333334% }
 .column-11 { width: 91.66666666666666% }
 .column-12 { width: 100% }
+
 @media only screen and (max-width: 1200px) {
-  .column-9 {
-    width: 100%;
-  }
-  .column-3 {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .column-6 {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 600px) {
   .column-1, .column-2, .column-3, .column-4, .column-5, .column-6, .column-7, .column-8, .column-9, .column-10, .column-11, .column-12 {
     width: 100%;
   }
@@ -274,7 +262,7 @@ label {
   display: block;
 }
 @media only screen and (max-width: 1200px) {
-  label {font-size: 2em;}
+  label {font-size: 1.25em;}
 }
 input:not([type=checkbox]):not([type=radio]) {
   box-sizing: border-box;
@@ -285,8 +273,8 @@ input:not([type=checkbox]):not([type=radio]) {
 }
 @media only screen and (max-width: 1200px) {
   input:not([type=checkbox]):not([type=radio]){
-    height: 300px;
-    font-size: 1.5em;
+    height: 200px;
+    font-size: 1.25em;
   }
 }
 select {
@@ -297,6 +285,11 @@ select {
 select:not([multiple]) {
   height: 40px;
   vertical-align: middle;
+}
+@media only screen and (max-width: 1200px) {
+  select:not([multiple]) {
+    height: 150px;
+  }
 }
 textarea {
   box-sizing: border-box;
