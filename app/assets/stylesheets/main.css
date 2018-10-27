@@ -8,6 +8,9 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
     font-size: 50px;
     height: 100px;
   }
+  #js-search-params, #js-search {
+    font-size: .7em;
+  }
 }
 
 
