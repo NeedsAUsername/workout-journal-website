@@ -283,6 +283,12 @@ input:not([type=checkbox]):not([type=radio]) {
   vertical-align: middle;
   -webkit-appearance: none;
 }
+@media only screen and (max-width: 1200px) {
+  input:not([type=checkbox]):not([type=radio]){
+    height: 300px;
+    font-size: 1.5em;
+  }
+}
 select {
   box-sizing: border-box;
   padding: 8px 8px;
