@@ -154,7 +154,6 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   padding: 40px;
   position: relative;
 }
-
 .close-modal {
   position: absolute;
   top: 0;
@@ -162,6 +161,18 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   font-size: 42px;
   transform: rotate(45deg);
   cursor: pointer;
+}
+@media only screen and (max-width: 1200px) {
+  .modal-content{
+  width: 80%;
+  height: 80%;
+  }
+  div.modal-content a img {
+    width: 75%;
+  }
+  .close-modal {
+    font-size: 2em;
+  }
 }
 /* Columns */
 .column-1, .column-2, .column-3, .column-4, .column-5, .column-6, .column-7, .column-8, .column-9, .column-10, .column-11, .column-12{
