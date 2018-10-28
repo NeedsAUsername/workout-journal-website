@@ -8,7 +8,7 @@
 
 <%= link_to 'Sign Up', '#', id: 'signup-link' %>, or
 <%= link_to 'Log in', '#', id:'login-link' %><br>
-<%= link_to 'Guest Login', '#', id:'guest-login' %><br>
+<%= link_to 'Guest Login', '#', {id:'guest-login', class: 'button'} %><br></br>
 <%= link_to image_tag('facebook_login_icon.png'), '/auth/facebook' %>
 
 <%= content_for :credits %>
