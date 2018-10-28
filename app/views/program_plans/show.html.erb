@@ -34,10 +34,12 @@
 
 
 <h3>Routine</h3>
-<% if @program_plan.days.empty? %>
-<%= link_to 'Create', new_routines_path %>
-<% else %>
-<%= link_to 'Edit', edit_routines_path(@program_plan) %>
+<% if @program_plan.user == @user %>
+  <% if @program_plan.days.empty? %>
+  <%= link_to 'Create', new_routines_path %>
+  <% else %>
+  <%= link_to 'Edit', edit_routines_path(@program_plan) %>
+<% end %>
 
 <ul>
 <% @program_plan.days.each do |day| %>
