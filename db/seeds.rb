@@ -10,3 +10,11 @@
 # necessary seeds
 Exercise.create_or_update_standard_exercises # needs to go first
 ProgramPlan.create_or_update_featured_programs
+
+
+# for Demo Use
+if User.find_by(email: 'guest@guest.com').nil?
+  user = User.new(name: 'Guest', email: 'guest@guest.com', password: 'pass', image: '/assets/guest.png')
+  user.build_journal(name: 'Workout Journal')
+  user.save
+end

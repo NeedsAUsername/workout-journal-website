@@ -18,6 +18,8 @@ to migrate:
 $ heroku run rake db:migrate
 to seed:
 $ heroku run rake db:seed
+to console:
+$ heroku run rails console
 
 After migrations:
 $ heroku restart
