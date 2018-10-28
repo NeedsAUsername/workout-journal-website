@@ -17,7 +17,10 @@
     <div class="close-modal" onclick="hideClass('.guest-login-form')">+</div>
     <h1>Login</h1>
     <%= form_for user, :url => login_path do |f| %>
-
+      <%= f.label :email %>
+      <%= f.text_field :email, value: 'guest@guest.com' %>
+      <%= f.label :password %>
+      <%= f.password_field :password, value: 'pass'%>
       <%= f.submit 'Log In' %>
     <% end %>
   </div>

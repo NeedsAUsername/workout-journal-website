@@ -44,12 +44,20 @@ class SessionsController < ApplicationController
   def user_found?
     if @user = User.find_by(email: params[:user][:email])
       if @user.email == 'guest@guest.com'
-        @user.program_plan.destroy
-        User.destroy_objects(@user.journal.entries)
+        clean_guest_account
       end
       true
     else
       false
+    end
+  end
+
+  def clean_guest_account
+    if @user.email == 'guest@guest.com'
+      User.destroy_objects(@user.journal.entries)
+      if @user.program_plan
+        @user.program_plan.destroy
+      end
     end 
   end
 
