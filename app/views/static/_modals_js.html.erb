@@ -10,4 +10,8 @@ function generateModals() {
     e.preventDefault();
     document.querySelector('.signup-form').style.display = 'flex';
   });
+  document.getElementById('guest-login').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.guest-login-form').style.display = 'flex';
+  });
 }

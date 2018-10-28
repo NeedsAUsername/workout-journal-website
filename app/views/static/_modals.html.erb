@@ -12,3 +12,13 @@
     <%= render partial: 'users/signup_form', locals:{user: user} %>
   </div>
 </div>
+<div class="modal-bg guest-login-form">
+  <div class="modal-content">
+    <div class="close-modal" onclick="hideClass('.login-form')">+</div>
+    <h1>Login</h1>
+    <%= form_for user, :url => login_path do |f| %>
+    
+      <%= f.submit 'Log In' %>
+    <% end %>
+  </div>
+</div>

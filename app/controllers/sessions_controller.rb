@@ -42,11 +42,15 @@ class SessionsController < ApplicationController
   private
 
   def user_found?
-    @user = User.find_by(email: params[:user][:email])
-    if @user.email == 'guest@guest.com'
-      @user.program_plan.destroy 
-      User.destroy_objects(@user.journal.entries)
-    end
+    if @user = User.find_by(email: params[:user][:email])
+      if @user.email == 'guest@guest.com'
+        @user.program_plan.destroy
+        User.destroy_objects(@user.journal.entries)
+      end
+      true
+    else
+      false
+    end 
   end
 
   def user_authenticated?
