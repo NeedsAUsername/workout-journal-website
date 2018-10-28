@@ -3,7 +3,7 @@
 <% if user.program_plan.nil? %>
   <%= form_for ProgramPlan.new do |f| %>
     <%= f.hidden_field :id, value: program_plan.id %>
-    <%= f.submit 'Start Program', {style: 'background-color:green'}%>
+    <%= f.submit 'Start Program', {class: 'button'}%>
   <% end  %>
 <% elsif user.program_plan == program_plan %>
   <div class="column-4">
