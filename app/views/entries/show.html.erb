@@ -5,3 +5,7 @@
 <p>
   <%= @entry.comments %>
 </p>
+
+<%= form_for @entry, url: journal_entry_path(@user, @entry) ,method: :delete do |f| %>
+  <%= f.submit 'Delete Entry', {class: 'button', id: 'stop-button'} %>
+<% end %>

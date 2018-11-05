@@ -26,12 +26,10 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    binding.pry
-    @journal = current_user.journal
     @entry = Entry.find(params[:id])
     @entry.destroy
 
-    render json: @journal
+    redirect_to journal_entries_path(current_user.journal)
   end
 
   private
