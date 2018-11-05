@@ -5,12 +5,3 @@
 <p>
   <%= @entry.comments %>
 </p>
-
-<%= render partial: 'form',
-  locals: {
-    journal: @user.journal,
-    program_plan: @user.program_plan,
-    entry: @entry,
-    nested_exercises_list: @entry.exercises
-  }
-%>
