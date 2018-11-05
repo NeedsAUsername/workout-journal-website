@@ -95,7 +95,7 @@
     let formatter = this;
     formatter.selectedEntries.forEach(function(entry) {
       let entryHTML = `<td><strong>${entry.date.slice(0, 10)}</strong>
-        <a onClick="deleteEntry(${entry.id})" href="#">Delete</a></td>`;
+        <a href='/journal/<%=@user.id%>/entries/${entry.id}'>View</a>`;
       let commentsHTML = `<tr><td>${entry.comments}</td></tr>`;
       let exercisesHTML = '';
       entry.exercises.forEach(function(exercise) {
@@ -107,10 +107,6 @@
   }
   EntriesHelper.prototype.appendEntries = function() {
     entryDiv.innerHTML = this.entriesHTML;
-  }
-
-  function deleteEntry(id) {
-    console.log(`delete this entry placeholder, entry id: ${id}`)
   }
 
   function getEntries(url) {

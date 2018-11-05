@@ -23,14 +23,15 @@ class EntriesController < ApplicationController
 
   def show
     @entry = current_user.journal.entries.find(params[:id])
-    render json: @entry
   end
 
   def destroy
+    binding.pry
+    @journal = current_user.journal
     @entry = Entry.find(params[:id])
     @entry.destroy
 
-    redirect_to journal_entries_path
+    render json: @journal
   end
 
   private
