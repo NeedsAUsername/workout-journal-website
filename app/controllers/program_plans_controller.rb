@@ -19,7 +19,7 @@ class ProgramPlansController < ApplicationController
   end
 
   def create
-    if params[:program_plan][:id]
+    if params[:program_plan][:id] # if user started a featured program
       @featured_program = ProgramPlan.find_by(featured_params)
       @program_plan = @featured_program.dup
       @program_plan.featured = nil
@@ -40,7 +40,7 @@ class ProgramPlansController < ApplicationController
         end
         @program_plan.days << dup_day
       end
-    else
+    else # User created custom program
       @program_plan = ProgramPlan.new(program_plan_params)
     end
 
