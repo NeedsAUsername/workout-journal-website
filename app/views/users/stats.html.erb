@@ -1,18 +1,18 @@
-<h1>Your Stats</h1>
+<h1>Your Stats (Under Construction)</h1>
 
 <div id="stats-data">
-  <p>Height: <%= @user.height %> inches</p>
-  <p>Weight: <%= @user.weight %> lbs</p>
+  <p>Height: <%= @user.height ? @user.height.to_s + ' inches' : nil %></p>
+  <p>Weight: <%= @user.weight ? @user.weight.to_s + ' lbs' : nil %></p>
 </div>
 
 <button id="js-show-stats-form" style="display: block; color: blue">edit</button>
 
 <div id="stats-form" class="column-6" style="display: none">
   <%= form_for @user, url: stats_path do |f| %>
-    <%= f.label :height %>
+    <%= f.label :height, 'Height (inches)'%>
     <%= f.number_field :height %>
     <br>
-    <%= f.label :weight %>
+    <%= f.label :weight, 'Weight (lbs)' %>
     <%= f.number_field :weight %>
     <%= f.submit 'Save'%>
   <% end %>
