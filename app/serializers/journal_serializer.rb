@@ -3,7 +3,7 @@ class JournalSerializer < ActiveModel::Serializer
   has_many :entries
 
   class EntrySerializer < ActiveModel::Serializer
-    attributes :date, :comments
+    attributes :id, :date, :comments
     has_many :exercises
 
     class ExerciseSerializer < ActiveModel::Serializer
