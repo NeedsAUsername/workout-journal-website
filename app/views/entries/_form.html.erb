@@ -11,17 +11,6 @@
     <%= f.label :exercises %>
   </p>
 
-  <% program_plan.days.each do |day| %>
-    <div class="workout-form <%= day.name.split.join %>" style='display: none'>
-        <% day.exercises.each do |exercise| %>
-          <%= f.fields_for :exercises, entry.exercises.build do |f| %>
-            <%= render partial: 'exercise_fields', locals: {f: f, exercises: program_plan.exercises, selected: exercise.name} %>
-          <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-
   <div id='exercises'>
     <div class='links'>
       <%= link_to_add_association 'add exercise', f, :exercises,
