@@ -7,7 +7,7 @@
   <% end  %>
 <% elsif user.program_plan == program_plan %>
   <div class="column-4">
-    <%= link_to 'Edit Program', edit_program_plan_path(program_plan), {class: 'button', id: 'edit-button'} %>
+    <%= link_to 'Edit Program', edit_program_plan_path(program_plan), {class: 'button edit-button'} %>
   </div>
   <div class="column-4">
     <%= form_for @program_plan, method: :delete do |f| %>

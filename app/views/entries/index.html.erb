@@ -1,10 +1,10 @@
 
 
-<container id="entry-nav">
+<container class="entry-nav">
   <button id="js-earlier-entries" class="button"><</button>
   <h2>
     <%= @journal.name %>
-    <p id="dateInfo"></p>
+    <p class="date-info"></p>
   </h2>
   <button id="js-later-entries" class="button">></button>
   <form class="search-bar">
@@ -59,7 +59,7 @@
       month = 12;
     }
     list = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-    let dateInfo = document.getElementById('dateInfo');
+    let dateInfo = document.querySelector('.date-info');
     dateInfo.textContent = `${list[month - 1]} ${year}`;
   }
 

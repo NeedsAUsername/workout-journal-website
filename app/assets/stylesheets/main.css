@@ -4,6 +4,7 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   html, body {
     font-size: 2em;
   }
+  /* needs id to override other css */
   #stop-button {
     font-size: 50px;
     height: 100px;
@@ -88,24 +89,24 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
 }
 
 /* Journal nav bar */
-#entry-nav {
+.entry-nav {
   display: flex;
   margin: auto;
   justify-content: center;
   padding: 20px;
 }
 
-#entry-nav button{
+.entry-nav button{
   margin: 20px;
 }
-#entry-nav h2 {
+.entry-nav h2 {
   text-align: center;
 }
-#entry-nav p {
+.entry-nav p {
   font-size: 85%;
 }
 
-#dateInfo {
+.date-info {
   align-self: center;
   font-size: 1em;
   text-align: center;
@@ -204,11 +205,11 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
 
 /* Miscellaneous */
 
-#barbell_logo {
+.barbell_logo {
   display: none;
 }
 
-#edit-button {
+.edit-button {
   background-color: green;
   width: auto;
   min-width: 150px;
