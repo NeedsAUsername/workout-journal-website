@@ -88,7 +88,7 @@
     this.selectedEntries.sort(function(a, b) {
       let aValue = Number(a.date.slice(8, 10));
       let bValue = Number(b.date.slice(8, 10));
-      return aValue - bValue;
+      return bValue - aValue;
     })
   }
   EntriesHelper.prototype.formatEntries = function() {
