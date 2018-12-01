@@ -12,8 +12,9 @@
   </head>
 
   <body>
-    <header class="left column-nav overflow-auto" onclick="toggleElement(this.children[0],'block')">
-      <div class="nav bg-darken-2 px3 py1">
+    <header class="left column-nav overflow-auto">
+      <img class="menu" src="assets/menu.png" onclick="toggleElement(document.querySelector('.nav'),'block')">
+      <section class="nav bg-darken-2 px3 py1">
         <h1 class="h3 center"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
         <nav>
             <%= link_to 'Home', root_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
@@ -26,7 +27,7 @@
             <%= link_to 'Programs', program_plans_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
             <%= link_to 'Stats', stats_path, {class: "block h6 caps button button-nav ml1 mr1 center"} %><br>
         </nav>
-      </div>
+      </section>
     </header>
     <div class="px4 column-9">
       <% if flash[:message].present? %>
