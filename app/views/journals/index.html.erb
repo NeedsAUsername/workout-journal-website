@@ -1,20 +1,21 @@
 
 <div class='top-bar'>
-  <h3>
-    Your Current Program: <%= link_to @program_plan.name, program_plan_path(@program_plan) %>
+  <h2>
+    Your Current Program: <br><%= link_to @program_plan.name, program_plan_path(@program_plan) %>
     <% if @program_plan.days.empty? %>
-      <br><%= link_to 'Create Routine', new_routines_path %>
+      | <%= link_to 'Create Routine', new_routines_path %>
     <% else %>
-      <br>Choose Workout:<br> <%= link_to 'edit routine', edit_routines_path %>
+      | <%= link_to 'edit routine', edit_routines_path %>
+      <br>Choose Workout: <br />
       <% @program_plan.days.each do |day| %>
-        <div class="workout-link">
+        <a href="" class="workout-link">
           <%= day.name %>
-        </div>
+        </a>
       <% end %>
     <% end %>
-  </h3>
+  </h2>
 </div>
-
+<br />
 <h2>Log your workout</h2>
 <%= render partial: 'form',
   locals: {

@@ -2,7 +2,7 @@
 html, body {margin:0;padding:0;height:100%;font-size: 1em;}
 @media only screen and (max-width: 1200px) {
   html, body {
-    font-size: 2em;
+    font-size: 1.5em;
   }
   /* needs id to override other css */
   #stop-button {
@@ -130,6 +130,7 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   border-bottom-width: 10px;
   border-bottom-color: green;
   padding-bottom: 15px;
+  display: flex;
 }
 
 .workout-link {
@@ -137,6 +138,8 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
   color: blue;
   float: left;
   margin-right: 10px;
+  margin-top: 10px;
+  font-size: 1.25em;
 }
 
 /* SignUp/LogIn Modal */
