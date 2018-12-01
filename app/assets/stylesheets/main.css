@@ -231,8 +231,6 @@ input[type=submit]{
 }
 
 
-/* End of Custom CSS */
-
 
 
 
@@ -506,70 +504,12 @@ body {
   position: relative;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
-}
-
-p, dl, ol, ul {
-  font-size: 18px;
-  font-size: 1.125rem;
-  margin-top: 0;
-  margin-bottom: 16px;
-  margin-bottom: 1rem;
-}
-
-pre, code, samp {
-  font-family: 'Source Code Pro', Consolas, monospace;
-  font-size: inherit;
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: 16px;
-  margin-bottom: 1rem;
-  overflow-x: scroll;
-}
-
-hr {
-  margin-top: 32px;
-  margin-top: 2rem;
-  margin-bottom: 32px;
-  margin-bottom: 2rem;
-}
-
-blockquote {
-  margin-top: 32px;
-  margin-top: 2rem;
-  margin-bottom: 32px;
-  margin-bottom: 2rem;
-  margin-left: 0;
-  padding-left: 16px;
-  padding-left: 1rem;
-  padding-right: 16px;
-  padding-right: 1rem;
-}
-  blockquote,
-  blockquote p {
-    font-size: 20px;
-    font-size: 1.25rem;
-    font-style: italic;
-  }
-
-h1, .h1 { font-size: 36px; font-size: 2.25rem }
+.h1 { font-size: 36px; font-size: 2.25rem }
 h2, .h2 { font-size: 28px; font-size: 1.75rem }
 h3, .h3 { font-size: 20px; font-size: 1.25rem }
 h4, .h4 { font-size: 18px; font-size: 1.125rem }
 h5, .h5 { font-size: 16px; font-size: 1rem }
 h6, .h6 { font-size: 12px; font-size: .75rem }
-
-.list-reset {
-  list-style: none;
-  padding-left: 0;
-}
 
 /* Basscss Utility Layout */
 
