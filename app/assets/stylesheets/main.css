@@ -10,7 +10,7 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
     height: 100px;
   }
   #js-search-params, #js-search {
-    font-size: .7em;
+    font-size: 1em;
   }
 }
 .footer {
@@ -122,7 +122,7 @@ html, body {margin:0;padding:0;height:100%;font-size: 1em;}
 }
 
 .search-bar {
-  width: 50%;
+  width: 40%;
   margin: auto;
 }
 
