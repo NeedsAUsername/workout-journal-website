@@ -13,7 +13,9 @@
 
   <body>
     <header class="left column-nav overflow-auto">
-      <img class="menu" src="/assets/menu.png" onclick="toggleElement(document.querySelector('.nav'),'block')">
+      <div class="bg-darken-2 menu">
+        <img src="/assets/menu.png" onclick="toggleElement(document.querySelector('.nav'),'block')">
+      </div>
       <section class="nav bg-darken-2 px3 py1">
         <h1 class="h2 center"><%= @user.name %><br><br><img src="<%= @user.image %>" class="center" alt=""></h1><br>
         <nav>
