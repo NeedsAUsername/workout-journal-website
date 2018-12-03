@@ -31,6 +31,7 @@
   const workouts = document.querySelectorAll('.workout-link');
   for (let i = 0; i < workouts.length; i++) {
     workouts[i].addEventListener('click', function(e){
+      e.preventDefault();
       let workoutForms = document.querySelectorAll('.workout-form');
       for (let i = 0; i < workoutForms.length; i++) {
         workoutForms[i].style.display = 'none';
