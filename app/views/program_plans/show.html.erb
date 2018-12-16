@@ -39,6 +39,7 @@
   <%= link_to 'Create', new_routines_path %>
   <% else %>
   <%= link_to 'Edit', edit_routines_path %>
+  <% end %>
 <% end %>
 
 <ul>
@@ -55,7 +56,6 @@
   </li>
 <% end %>
 </ul>
-<% end %>
 
 
 <% if @program_plan.featured %>
