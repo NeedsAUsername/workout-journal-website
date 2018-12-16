@@ -21,5 +21,8 @@ $ heroku run rake db:seed
 to console:
 $ heroku run rails console
 
+to add heroku remote to current repo:
+$ git remote add heroku git@heroku.com:workout-programs-journal.git
+
 After migrations:
 $ heroku restart
