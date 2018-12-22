@@ -245,8 +245,20 @@ input[type=submit]{
   cursor: pointer;
 }
 
+.exercise-dropdown {
+  border: solid;
+  border-width: .5px;
+}
+.exercise-dropdown:hover {
+  background-color: #d6c2c2;
+}
 
-
+.exercise-hide {
+  border: solid;
+  border-bottom: none;
+  border-right: none;
+  border-width: .5px;
+}
 
 
 

@@ -10,9 +10,9 @@
 <ul>
 <% @program_plan.exercises.each do |exercise| %>
   <div class="modul-container">
-    <button id="show<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='block';
+    <button class="exercise-dropdown" id="show<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='block';
       document.getElementById('hide<%=exercise.name%>').style.display='block'; document.getElementById('show<%=exercise.name%>').style.display='none'"><%= exercise.name %></button>
-    <button id="hide<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='none';
+    <button class="exercise-hide" id="hide<%=exercise.name%>" onclick="document.getElementById('<%=exercise.name%>').style.display='none';
       document.getElementById('hide<%=exercise.name%>').style.display='none'; document.getElementById('show<%=exercise.name%>').style.display='block'" style='display:none'><%= exercise.name %></button>
     <ul>
       <ul id="<%= exercise.name %>" style="display:none">
